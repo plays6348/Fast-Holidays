@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from '@/styles/destinations.module.css';
 import Layout from '@/components/layout';
-import FilterSidebar from '../components/FilterSidebar';
 import DestCard from '@/components/common/destCard';
 import {
   collection,

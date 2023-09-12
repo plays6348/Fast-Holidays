@@ -3,6 +3,7 @@ import styles from '@/styles/singleAirlineFares.module.css';
 import { useRouter } from 'next/router';
 import Layout from '../../../components/layout';
 import FareCard from '@/components/common/fareCard';
+
 import { countries } from 'utils/data';
 
 // firebase
@@ -21,6 +22,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import InquiryForm from '@/components/common/inquiryForm';
 import { theme } from '../../../styles/theme';
 import Searchbar from '@/components/searchEngine';
+import FilterSidebar from '@/components/FilterSidebar';
 
 export default function SingleAirline() {
   const router = useRouter();
@@ -127,6 +129,33 @@ export default function SingleAirline() {
   // console.log(footerData);
   // console.log(fares);
 
+  const getDepartureFilterData = async (code) => {
+    const arrOfData = [];
+    const q = query(
+      collection(db, 'fares'),
+      where('deptCountry.code', '==', code),
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      arrOfData.push({ ...doc.data(), _id: doc.id });
+    });
+    setFares([...arrOfData])
+  }
+
+  const getDestinationFilterData = async (code) => {
+    const arrOfData = [];
+    const q = query(
+      collection(db, 'fares'),
+      where('destCountry.code', '==', code),
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      arrOfData.push({ ...doc.data(), _id: doc.id });
+    });
+    setFares([...arrOfData])
+
+  }
+
   return (
     <Layout title={'Airlines'}>
       <ThemeProvider theme={theme}></ThemeProvider>
@@ -155,47 +184,55 @@ export default function SingleAirline() {
             )}
           </>
         )}
-        <div className={styles.faresContainer}>
-          {fares.length > 0 ? (
-            <>
-              {fares.length > 0 &&
-                fares.map((fare, i) => (
-                  <FareCard data={fare} key={i} index={i} />
-                ))}
-            </>
-          ) : (
-            <>
-              {
-                <>
-                  {!isEmpty && (
-                    <>
-                      {Array(6)
-                        .fill(true)
-                        .map((item, i) => (
-                          <div key={i}>
-                            <div className={styles.fareSkeletonForPC}>
-                              <Skeleton
-                                variant="rectangular"
-                                width={560}
-                                height={215}
-                              />
+
+        <div style={{ display: "flex" }}>
+          <FilterSidebar
+            getDepartureFilterData={getDepartureFilterData}
+            getDestinationFilterData={getDestinationFilterData}
+          />
+          <div className={styles.faresContainer}>
+            {fares.length > 0 ? (
+              <>
+                {fares.length > 0 &&
+                  fares.map((fare, i) => (
+                    <FareCard data={fare} key={i} index={i} />
+                  ))}
+              </>
+            ) : (
+              <>
+                {
+                  <>
+                    {!isEmpty && (
+                      <>
+                        {Array(6)
+                          .fill(true)
+                          .map((item, i) => (
+                            <div key={i}>
+                              <div className={styles.fareSkeletonForPC}>
+                                <Skeleton
+                                  variant="rectangular"
+                                  width={560}
+                                  height={215}
+                                />
+                              </div>
+                              <div className={styles.fareSkeletonForPhone}>
+                                <Skeleton
+                                  variant="rectangular"
+                                  width={280}
+                                  height={480}
+                                />
+                              </div>
                             </div>
-                            <div className={styles.fareSkeletonForPhone}>
-                              <Skeleton
-                                variant="rectangular"
-                                width={280}
-                                height={480}
-                              />
-                            </div>
-                          </div>
-                        ))}
-                    </>
-                  )}
-                </>
-              }
-            </>
-          )}
+                          ))}
+                      </>
+                    )}
+                  </>
+                }
+              </>
+            )}
+          </div>
         </div>
+
         <ThemeProvider theme={theme}>
           {fares.length > 0 && (
             <LoadingButton

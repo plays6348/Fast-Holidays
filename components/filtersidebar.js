@@ -1,6 +1,60 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+} from 'firebase/firestore';
+import { db } from '../config/firebaseConfig';
+import { useState } from 'react';
 
-const FilterSidebar = () => {
+const FilterSidebar = ({getDepartureFilterData, getDestinationFilterData}) => {
+
+  const [destinations, setDestination] = useState([]);
+
+
+  useEffect(()=>{
+    getDepatureCountries();
+    getDestinationCountries();
+  }, [])
+
+  const getDepatureCountries = async ()=>{
+    const list = [];
+    const q = query(
+      collection(db, 'fares'),
+      where('deptCountry.code', '!=', ''),
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+      list.push({ ...doc.data(), _id: doc.id });
+    });
+    const deptCountry = list.map(val=>val.deptCountry)
+    const uniqueDeptCountries = new Set(deptCountry.map(JSON.stringify));
+    const result = Array.from(uniqueDeptCountries).map(JSON.parse);
+    setDestination([...result])
+  }
+  const getDestinationCountries = async ()=>{
+    const list = [];
+    const q = query(
+      collection(db, 'fares'),
+      where('destCountry.code', '!=', ''),
+    );
+
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach((doc) => {
+      list.push({ ...doc.data(), _id: doc.id });
+    });
+    const deptCountry = list.map(val=>val.deptCountry)
+    const uniqueDeptCountries = new Set(deptCountry.map(JSON.stringify));
+    const result = Array.from(uniqueDeptCountries).map(JSON.parse);
+    setDestination([...result])
+  }
+
+
+
   const check = () => {
     // Your checkbox click handler logic goes here
   };
@@ -14,175 +68,175 @@ const FilterSidebar = () => {
       </div>
       <div>
           <input type="checkbox" id="Zambia" onClick={check} />
-          <label for="Zambia">Zambia</label>
+          <label htmlFor="Zambia">Zambia</label>
         </div> 
         <div>
           <input type="checkbox" id="Usa" onClick={check} />
-          <label for="Usa">Usa</label>
+          <label htmlFor="Usa">Usa</label>
         </div> 
         <div>
           <input type="checkbox" id="United Kingdom" onClick={check} />
-          <label for="United Kingdom">United Kingdom</label>
+          <label htmlFor="United Kingdom">United Kingdom</label>
         </div>
         <div>
             <input type="checkbox" id="Thailand" onClick={check} />
-            <label for="Thailand">Thailand</label>
+            <label htmlFor="Thailand">Thailand</label>
           </div>
           <div>
             <input type="checkbox" id="Tanzania" onClick={check} />
-            <label for="Tanzania">Tanzania</label>
+            <label htmlFor="Tanzania">Tanzania</label>
           </div>
           <div>
             <input type="checkbox" id="Sudan" onClick={check} />
-            <label for="Sudan">Sudan</label>
+            <label htmlFor="Sudan">Sudan</label>
           </div>
           <div>
             <input type="checkbox" id="Sri Lanka" onClick={check} />
-            <label for="Sri Lanka">Sri Lanka</label>
+            <label htmlFor="Sri Lanka">Sri Lanka</label>
           </div>
           <div>
             <input type="checkbox" id="South Africa" onClick={check} />
-            <label for="South Africa">South Africa</label>
+            <label htmlFor="South Africa">South Africa</label>
           </div>
           <div>
             <input type="checkbox" id="Singapore" onClick={check} />
-            <label for="Singapore">Singapore</label>
+            <label htmlFor="Singapore">Singapore</label>
           </div>
           <div>
             <input type="checkbox" id="Sierra Leone" onClick={check} />
-            <label for="Sierra Leone">Sierra Leone</label>
+            <label htmlFor="Sierra Leone">Sierra Leone</label>
           </div>
           <div>
             <input type="checkbox" id="Senegal" onClick={check} />
-            <label for="Senegal">Senegal</label>
+            <label htmlFor="Senegal">Senegal</label>
           </div>
           <div>
             <input type="checkbox" id="Saudi Arab" onClick={check} />
-            <label for="Saudi Arab">Saudi Arab</label>
+            <label htmlFor="Saudi Arab">Saudi Arab</label>
           </div>
           <div>
             <input type="checkbox" id="Rwanda" onClick={check} />
-            <label for="Rwanda">Rwanda</label>
+            <label htmlFor="Rwanda">Rwanda</label>
           </div>
           <div>
             <input type="checkbox" id="Philippines" onClick={check} />
-            <label for="Philippines">Philippines</label>
+            <label htmlFor="Philippines">Philippines</label>
           </div>
           <div>
             <input type="checkbox" id="Pakistan" onClick={check} />
-            <label for="Pakistan">Pakistan</label>
+            <label htmlFor="Pakistan">Pakistan</label>
           </div>
           <div>
             <input type="checkbox" id="Nigeria" onClick={check} />
-            <label for="Nigeria">Nigeria</label>
+            <label htmlFor="Nigeria">Nigeria</label>
           </div>
           <div>
             <input type="checkbox" id="Malaysia" onClick={check} />
-            <label for="Malaysia">Malaysia</label>
+            <label htmlFor="Malaysia">Malaysia</label>
           </div>
           <div>
             <input type="checkbox" id="Malaysia" onClick={check} />
-            <label for="Malaysia">Malaysia</label>
+            <label htmlFor="Malaysia">Malaysia</label>
           </div>
           <div>
             <input type="checkbox" id="Kenya" onClick={check} />
-            <label for="Kenya">Kenya</label>
+            <label htmlFor="Kenya">Kenya</label>
           </div>
           <div>
             <input type="checkbox" id="Jamaica" onClick={check} />
-            <label for="Jamaica">Jamaica</label>
+            <label htmlFor="Jamaica">Jamaica</label>
           </div>
           <div>
             <input type="checkbox" id="Ivory Coast" onClick={check} />
-            <label for="Ivory Coast">Ivory Coast</label>
+            <label htmlFor="Ivory Coast">Ivory Coast</label>
           </div>
           <div>
             <input type="checkbox" id="Ireland" onClick={check} />
-            <label for="Ireland">Ireland</label>
+            <label htmlFor="Ireland">Ireland</label>
           </div>
           <div>
             <input type="checkbox" id="India" onClick={check} />
-            <label for="India">India</label>
+            <label htmlFor="India">India</label>
           </div>
           <div>
             <input type="checkbox" id="Hong Kong" onClick={check} />
-            <label for="Hong Kong">Hong Kong</label>
+            <label htmlFor="Hong Kong">Hong Kong</label>
           </div>
           <div>
             <input type="checkbox" id="Grenada" onClick={check} />
-            <label for="Grenada">Grenada</label>
+            <label htmlFor="Grenada">Grenada</label>
           </div>
           <div>
             <input type="checkbox" id="Ghana" onClick={check} />
-            <label for="Ghana">Ghana</label>
+            <label htmlFor="Ghana">Ghana</label>
           </div>
           <div>
             <input type="checkbox" id="Gambia" onClick={check} />
-            <label for="Gambia">Gambia</label>
+            <label htmlFor="Gambia">Gambia</label>
           </div>
           <div>
             <input type="checkbox" id="France" onClick={check} />
-            <label for="France">France</label>
+            <label htmlFor="France">France</label>
           </div>
           <div>
             <input type="checkbox" id="Ethiopia" onClick={check} />
-            <label for="Ethiopia">Ethiopia</label>
+            <label htmlFor="Ethiopia">Ethiopia</label>
           </div>
           <div>
             <input type="checkbox" id="Egypt" onClick={check} />
-            <label for="Egypt">Egypt</label>
+            <label htmlFor="Egypt">Egypt</label>
           </div>
           <div>
             <input type="checkbox" id="Dominican Republic" onClick={check} />
-            <label for="Dominican Republic">Dominican Republic</label>
+            <label htmlFor="Dominican Republic">Dominican Republic</label>
           </div>
           <div>
             <input type="checkbox" id="Dominica" onClick={check} />
-            <label for="Dominica">Dominica</label>
+            <label htmlFor="Dominica">Dominica</label>
           </div>
           <div>
             <input type="checkbox" id="Democratic Republic Of The Congo" onClick={check} />
-            <label for="Democratic Republic Of The Congo">Democratic Republic Of The Congo</label>
+            <label htmlFor="Democratic Republic Of The Congo">Democratic Republic Of The Congo</label>
           </div>
           <div>
             <input type="checkbox" id="China" onClick={check} />
-            <label for="China">China</label>
+            <label htmlFor="China">China</label>
           </div>
           <div>
             <input type="checkbox" id="Canada" onClick={check} />
-            <label for="Canada">Canada</label>
+            <label htmlFor="Canada">Canada</label>
           </div>
           <div>
             <input type="checkbox" id="Cameroon" onClick={check} />
-            <label for="Cameroon">Cameroon</label>
+            <label htmlFor="Cameroon">Cameroon</label>
           </div>
           <div>
             <input type="checkbox" id="Burundi" onClick={check} />
-            <label for="Burundi">Burundi</label>
+            <label htmlFor="Burundi">Burundi</label>
           </div>
           <div>
             <input type="checkbox" id="Benin" onClick={check} />
-            <label for="Benin">Benin</label>
+            <label htmlFor="Benin">Benin</label>
           </div>
           <div>
             <input type="checkbox" id="Dominica" onClick={check} />
-            <label for="Dominica">Dominica</label>
+            <label htmlFor="Dominica">Dominica</label>
           </div>
           <div>
             <input type="checkbox" id="Belgium" onClick={check} />
-            <label for="Belgium">Belgium</label>
+            <label htmlFor="Belgium">Belgium</label>
           </div>
           <div>
             <input type="checkbox" id="Barbados" onClick={check} />
-            <label for="Barbados">Barbados</label>
+            <label htmlFor="Barbados">Barbados</label>
           </div>
           <div>
             <input type="checkbox" id="Bangladesh" onClick={check} />
-            <label for="Bangladesh">Bangladesh</label>
+            <label htmlFor="Bangladesh">Bangladesh</label>
           </div>
           <div>
             <input type="checkbox" id="Australia" onClick={check} />
-            <label for="Australia">Australia</label>
+            <label htmlFor="Australia">Australia</label>
           </div>
     </div>
   );
