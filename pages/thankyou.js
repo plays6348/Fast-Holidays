@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+// pages/thankyou.js
+
+>>>>>>> 7671c25 (thankyou page add and configure with forms)
 // import Link from 'next/link';
 import styles from '@/styles/thankyou.module.css';
 import React from 'react';
