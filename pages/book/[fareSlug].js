@@ -70,32 +70,34 @@ export default function BookNow() {
       setSending(true);
       emailjs
         .send(
-          'service_1d21p96',
+          'service_iodawml',
           'template_mqvxf7a',
           { ...form, ...selectedFare },
           'tL_Vpyj5WxQRqs6ec',
         )
         .then((res) => {
-          console.log(res);
-          setShowDialog({
-            title: 'Successfull',
-            msg: 'Inquiry sent successfully, We will call you for further processing.',
-          });
+          // console.log(res);
+          // setShowDialog({
+          //   title: 'Successfull',
+          //   msg: 'Inquiry sent successfully, We will call you for further processing.',
+          // });
+          router.push('/thankyou')
           setSending(false);
         })
         .catch((err) => {
-          console.log(err);
-          setShowDialog({
-            title: 'Something went wrong',
-            msg: 'Inquiry not sent.',
-          });
+          // console.log(err);
+          // setShowDialog({
+          //   title: 'Something went wrong',
+          //   msg: 'Inquiry not sent.',
+          // });
           setSending(false);
         });
     } else {
-      setShowDialog({
-        title: 'Error',
-        msg: 'Kindly fill the Form.',
-      });
+      // setShowDialog({
+      //   title: 'Error',
+      //   msg: 'Kindly fill the Form.',
+      // });
+      router.push('/thankyou')
     }
   };
 
@@ -292,7 +294,7 @@ export default function BookNow() {
             </Button>
           </div>
         </div>
-        <Dialog open={showDialog} keepMounted onClose={() => showDialog(false)}>
+        {/* <Dialog open={showDialog} keepMounted onClose={() => showDialog(false)}>
           <DialogTitle>{showDialog.title}</DialogTitle>
           <DialogContent>
             <DialogContentText>{showDialog.msg}</DialogContentText>
@@ -300,7 +302,7 @@ export default function BookNow() {
           <DialogActions>
             <Button onClick={() => setShowDialog(false)}>OK</Button>
           </DialogActions>
-        </Dialog>
+        </Dialog> */}
       </ThemeProvider>
       {/* ) : (
         <div className={styles.loaderContainer}>

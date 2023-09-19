@@ -61,7 +61,13 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
 
   return (
     <div className="filterssiderbar">
-      <h1>Filter by Destination</h1>
+      <h2>Filter by Destination</h2>
+      <button className="sidebarfilterbtn" onClick={getDepartureFilterData} style={{backgroundColor:"red"}}>
+          For Departure
+        </button>
+        <button className="sidebarfilterbtn" onClick={getDestinationFilterData}>
+          For Destination
+        </button>
       {
         destinations.map((val, key) => {
           return (
@@ -73,7 +79,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
         })
       }
 
-      <div>
+      {/* <div>
         <input type="checkbox" id="Zambia" onClick={check} />
         <label htmlFor="Zambia">Zambia</label>
       </div>
@@ -244,7 +250,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
       <div>
         <input type="checkbox" id="Australia" onClick={check} />
         <label htmlFor="Australia">Australia</label>
-      </div>
+      </div> */}
     </div>
   );
 };

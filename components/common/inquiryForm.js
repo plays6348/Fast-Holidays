@@ -20,8 +20,10 @@ import {
 } from '@mui/material';
 import Layout from '@/components/layout';
 import { theme } from '@/styles/theme';
+import { useRouter } from 'next/router'
 
 export default function InquiryForm({ h1 }) {
+  const router = useRouter();
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -49,11 +51,12 @@ export default function InquiryForm({ h1 }) {
       emailjs
         .send('service_iodawml', 'template_mqvxf7a', form, 'tL_Vpyj5WxQRqs6ec')
         .then((res) => {
-          console.log(res);
-          setShowDialog({
-            title: 'Successfull',
-            msg: 'Inquiry sent successfully, We will call you for further processing.',
-          });
+          // console.log(res);
+          // setShowDialog({
+          //   title: 'Successfull',
+          //   msg: 'Inquiry sent successfully, We will call you for further processing.',
+          // });
+          router.push('/thankyou')
           setForm({
             name: '',
             email: '',
@@ -68,16 +71,17 @@ export default function InquiryForm({ h1 }) {
         })
         .catch((err) => {
           console.log(err);
-          setShowDialog({
-            title: 'Something went wrong',
-            msg: 'Inquiry not sent.',
-          });
+          // setShowDialog({
+          //   title: 'Something went wrong',
+          //   msg: 'Inquiry not sent.',
+          // });
         });
     } else {
-      setShowDialog({
-        title: 'Error',
-        msg: 'Kindly fill the Form.',
-      });
+      // setShowDialog({
+      //   title: 'Error',
+      //   msg: 'Kindly fill the Form.',
+      // });
+      router.push('/thankyou')
     }
   };
 
@@ -185,7 +189,7 @@ export default function InquiryForm({ h1 }) {
           </Button>
         </div>
       </div>
-      <Dialog open={showDialog} keepMounted onClose={() => showDialog(false)}>
+      {/* <Dialog open={showDialog} keepMounted onClose={() => showDialog(false)}>
         <DialogTitle>{showDialog.title}</DialogTitle>
         <DialogContent>
           <DialogContentText>{showDialog.msg}</DialogContentText>
@@ -193,7 +197,7 @@ export default function InquiryForm({ h1 }) {
         <DialogActions>
           <Button onClick={() => setShowDialog(false)}>OK</Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
     </ThemeProvider>
   );
 }
