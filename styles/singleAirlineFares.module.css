@@ -45,12 +45,18 @@
 }
 
 .faresContainer {
-  width: fit-content;
+  /* width: fit-content; */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
   /* row-gap: 2rem; */
   margin: 2rem 0;
   height: fit-content;
+}
+
+.cardandfiltercontainer{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 @media screen and (max-width: 1200px) {
@@ -209,6 +215,11 @@
 @media screen and (max-width: 786px) {
   .secondSidebar {
     display: none;
+  }
+.cardandfiltercontainer{
+  width: unset;
+  flex-direction: column;
+  justify-content: unset
   }
 }
 

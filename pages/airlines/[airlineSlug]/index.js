@@ -22,7 +22,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import InquiryForm from '@/components/common/inquiryForm';
 import { theme } from '../../../styles/theme';
 import Searchbar from '@/components/searchEngine';
-import FilterSidebar from '@/components/FilterSidebar';
+import FilterSidebar from '@/components/filtersidebar';
 
 export default function SingleAirline() {
   const router = useRouter();
@@ -182,10 +182,10 @@ export default function SingleAirline() {
                 <h1>{convertString(airlineSlug)}</h1>
               </div>
             )}
-          </>
+          </> 
         )}
 
-        <div style={{ display: "flex" }}>
+        <div className={styles.cardandfiltercontainer}>
           <FilterSidebar
             getDepartureFilterData={getDepartureFilterData}
             getDestinationFilterData={getDestinationFilterData}

@@ -26,7 +26,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     );
 
     const querySnapshot = await getDocs(q);
-
+console.log (querySnapshot,'=querySnapshotquerySnapshotquerySnapshot')
     querySnapshot.forEach((doc) => {
       list.push({ ...doc.data(), _id: doc.id });
     });
@@ -62,12 +62,6 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
   return (
     <div className="filterssiderbar">
       <h2>Filter by Destination</h2>
-      <button className="sidebarfilterbtn" onClick={getDepartureFilterData} style={{backgroundColor:"red"}}>
-          For Departure
-        </button>
-        <button className="sidebarfilterbtn" onClick={getDestinationFilterData}>
-          For Destination
-        </button>
       {
         destinations.map((val, key) => {
           return (
