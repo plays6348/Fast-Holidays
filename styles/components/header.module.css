@@ -88,8 +88,10 @@
 
 .highlightedLink {
   /* color: #ffffffe1; */
-  color: #fff;
-  background-color: #d4d4d441;
+  /* color: #fff; */
+  /* background-color: #d4d4d441; */
+  color: #cc1817;
+  background-color: #fff;
   padding: 0.2rem 0.6rem;
   border-radius: 5px;
   cursor: pointer;
