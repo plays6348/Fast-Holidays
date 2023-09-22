@@ -12,12 +12,18 @@ import styles from '@/styles/components/common/filterssidebar.module.css';
 const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => {
 
   const [destinations, setDestination] = useState([]);
+  const [checkBox , setCheckBox] = useState([]);
+
 
 
   useEffect(() => {
     getDepatureCountries();
     getDestinationCountries();
   }, [])
+
+  const areObjectsEqual = (obj1, obj2) => {
+    return obj1.name === obj2.name;
+  }
 
   const getDepatureCountries = async () => {
     const list = [];
@@ -27,14 +33,19 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     );
 
     const querySnapshot = await getDocs(q);
-console.log (querySnapshot,'=querySnapshotquerySnapshotquerySnapshot')
     querySnapshot.forEach((doc) => {
       list.push({ ...doc.data(), _id: doc.id });
     });
-    const deptCountry = list.map(val => val.deptCountry)
-    const uniqueDeptCountries = new Set(deptCountry.map(JSON.stringify));
-    const result = Array.from(uniqueDeptCountries).map(JSON.parse);
-    setDestination([...result])
+
+
+
+    const deptCountry = list.map(val => val.deptCountry);
+
+    const uniqueArray = deptCountry.filter((obj, index, self) =>
+      self.findIndex(o => areObjectsEqual(o, obj)) === index
+    );
+
+    setDestination([...uniqueArray])
   }
   const getDestinationCountries = async () => {
     const list = [];
@@ -49,16 +60,29 @@ console.log (querySnapshot,'=querySnapshotquerySnapshotquerySnapshot')
       list.push({ ...doc.data(), _id: doc.id });
     });
     const deptCountry = list.map(val => val.deptCountry)
-    const uniqueDeptCountries = new Set(deptCountry.map(JSON.stringify));
-    const result = Array.from(uniqueDeptCountries).map(JSON.parse);
-    setDestination([...result])
+    const uniqueArray = deptCountry.filter((obj, index, self) =>
+    self.findIndex(o => areObjectsEqual(o, obj)) === index
+  );
+    setDestination([...uniqueArray])
   }
 
 
 
-  const check = () => {
+  const check = (code) => {
+    let codeArray = [...checkBox];
+    if(codeArray.includes(code)){
+      const findIndex = codeArray.findIndex(val=>val.code ===code);
+      codeArray.splice(findIndex)
+    }else{
+      codeArray.push(code);
+    }
+
+    setCheckBox([...codeArray])
+    console.log(codeArray ,'====d====')
+    getDestinationFilterData(codeArray)
     // Your checkbox click handler logic goes here
   };
+  console.log(checkBox, '======checkbox')
 
   return (
     <div className={styles.filterssiderbar}>
@@ -67,7 +91,7 @@ console.log (querySnapshot,'=querySnapshotquerySnapshotquerySnapshot')
         destinations.map((val, key) => {
           return (
             <div key={key}>
-              <input type="checkbox" id="Zimbabwe" onClick={check} />
+              <input type="checkbox" id="Zimbabwe" onClick={()=>check(val.code)} />
               <label htmlFor={val.name}>{val.name}</label>
             </div>
           )

@@ -144,10 +144,20 @@ export default function SingleAirline() {
 
   const getDestinationFilterData = async (code) => {
     const arrOfData = [];
-    const q = query(
-      collection(db, 'fares'),
-      where('destCountry.code', '==', code),
-    );
+    let q;
+    if(code.length>0){
+       q = query(
+        collection(db, 'fares'),
+        where('airline.name', '==', airlineSlug),
+        where('destCountry.code', 'in', code),
+      );
+    }else{
+       q = query(
+        collection(db, 'fares'),
+        where('airline.name', '==', airlineSlug),
+      );
+    }
+    
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       arrOfData.push({ ...doc.data(), _id: doc.id });
@@ -204,7 +214,8 @@ export default function SingleAirline() {
                   <>
                     {!isEmpty && (
                       <>
-                        {Array(6)
+                      <h1>No Record Found</h1>
+                        {/* {Array(6)
                           .fill(true)
                           .map((item, i) => (
                             <div key={i}>
@@ -223,7 +234,7 @@ export default function SingleAirline() {
                                 />
                               </div>
                             </div>
-                          ))}
+                          ))} */}
                       </>
                     )}
                   </>
