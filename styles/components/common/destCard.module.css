@@ -14,14 +14,14 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 1rem;
   cursor: pointer;
-  transition: all 0.15s ease-in-out;
+  transition: transform .3s ease-in-out;
 }
 
 .destCard:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  transform: translateY(-3px);
+  /* transform: translateY(-3px); */
   transform: scale(1.1);
-  transition: transform .3s ease-in-out;
+  
 }
 
 .destCard__txt {

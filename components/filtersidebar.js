@@ -7,6 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebaseConfig';
 import { useState } from 'react';
+import styles from '@/styles/components/common/filterssidebar.module.css';
 
 const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => {
 
@@ -60,7 +61,7 @@ console.log (querySnapshot,'=querySnapshotquerySnapshotquerySnapshot')
   };
 
   return (
-    <div className="filterssiderbar">
+    <div className={styles.filterssiderbar}>
       <h2>Filter by Destination</h2>
       {
         destinations.map((val, key) => {
