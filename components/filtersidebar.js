@@ -17,7 +17,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
 
 
   useEffect(() => {
-    getDepatureCountries();
+    // getDepatureCountries();
     getDestinationCountries();
   }, [])
 
@@ -25,33 +25,34 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     return obj1.name === obj2.name;
   }
 
-  const getDepatureCountries = async () => {
-    const list = [];
-    const q = query(
-      collection(db, 'fares'),
-      where('deptCountry.code', '!=', ''),
-    );
+  // const getDepatureCountries = async () => {
+  //   const list = [];
+  //   const q = query(
+  //     collection(db, 'fares'),
+  //     where('deptCountry.code', '!=', ''),
+  //   );
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      list.push({ ...doc.data(), _id: doc.id });
-    });
+  //   const querySnapshot = await getDocs(q);
+  //   querySnapshot.forEach((doc) => {
+  //     list.push({ ...doc.data(), _id: doc.id });
+  //   });
 
 
 
-    const deptCountry = list.map(val => val.deptCountry);
+  //   const deptCountry = list.map(val => val.deptCountry);
 
-    const uniqueArray = deptCountry.filter((obj, index, self) =>
-      self.findIndex(o => areObjectsEqual(o, obj)) === index
-    );
+  //   const uniqueArray = deptCountry.filter((obj, index, self) =>
+  //     self.findIndex(o => areObjectsEqual(o, obj)) === index
+  //   );
 
-    setDestination([...uniqueArray])
-  }
+  //   setDestination([...uniqueArray])
+  // }
   const getDestinationCountries = async () => {
     const list = [];
     const q = query(
       collection(db, 'fares'),
       where('destCountry.code', '!=', ''),
+      // where('deptCountry.code', '!=', ''),
     );
 
     const querySnapshot = await getDocs(q);
@@ -59,8 +60,8 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     querySnapshot.forEach((doc) => {
       list.push({ ...doc.data(), _id: doc.id });
     });
-    const deptCountry = list.map(val => val.deptCountry)
-    const uniqueArray = deptCountry.filter((obj, index, self) =>
+    const destCountry = list.map(val => val.destCountry)
+    const uniqueArray = destCountry.filter((obj, index, self) =>
     self.findIndex(o => areObjectsEqual(o, obj)) === index
   );
     setDestination([...uniqueArray])
