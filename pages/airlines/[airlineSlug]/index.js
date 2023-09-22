@@ -145,19 +145,19 @@ export default function SingleAirline() {
   const getDestinationFilterData = async (code) => {
     const arrOfData = [];
     let q;
-    if(code.length>0){
-       q = query(
+    if (code.length > 0) {
+      q = query(
         collection(db, 'fares'),
         where('airline.name', '==', airlineSlug),
         where('destCountry.code', 'in', code),
       );
-    }else{
-       q = query(
+    } else {
+      q = query(
         collection(db, 'fares'),
         where('airline.name', '==', airlineSlug),
       );
     }
-    
+
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       arrOfData.push({ ...doc.data(), _id: doc.id });
@@ -192,7 +192,7 @@ export default function SingleAirline() {
                 <h1>{convertString(airlineSlug)}</h1>
               </div>
             )}
-          </> 
+          </>
         )}
 
         <div className={styles.cardandfiltercontainer}>
@@ -208,39 +208,34 @@ export default function SingleAirline() {
                     <FareCard data={fare} key={i} index={i} />
                   ))}
               </>
-            ) : (
-              <>
-                {
-                  <>
-                    {!isEmpty && (
-                      <>
-                      <h1>No Record Found</h1>
-                        {/* {Array(6)
-                          .fill(true)
-                          .map((item, i) => (
-                            <div key={i}>
-                              <div className={styles.fareSkeletonForPC}>
-                                <Skeleton
-                                  variant="rectangular"
-                                  width={560}
-                                  height={215}
-                                />
-                              </div>
-                              <div className={styles.fareSkeletonForPhone}>
-                                <Skeleton
-                                  variant="rectangular"
-                                  width={280}
-                                  height={480}
-                                />
-                              </div>
-                            </div>
-                          ))} */}
-                      </>
-                    )}
-                  </>
-                }
-              </>
-            )}
+            ) :
+              fetching === true ?
+                Array(6)
+                  .fill(true)
+                  .map((item, i) => (
+                    <div key={i}>
+                      <div className={styles.fareSkeletonForPC}>
+                        <Skeleton
+                          variant="rectangular"
+                          width={560}
+                          height={215}
+                        />
+                      </div>
+                      <div className={styles.fareSkeletonForPhone}>
+                        <Skeleton
+                          variant="rectangular"
+                          width={280}
+                          height={480}
+                        />
+                      </div>
+                    </div>
+                  ))
+                :
+                (
+                  isEmpty && (
+                    <h1>No Record Found</h1>
+                  )
+                )}
           </div>
         </div>
 
