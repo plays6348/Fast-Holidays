@@ -9,9 +9,11 @@ import { db } from '../config/firebaseConfig';
 import { useState } from 'react';
 import styles from '@/styles/components/common/filterssidebar.module.css';
 import { Button, Icon, Select } from '@mui/material';
+import Checkbox from './Checkbox'
 
 const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => {
 
+  const [searchArray, setSearchArray] = useState([]);
   const [destinations, setDestination] = useState([]);
   const [checkBox, setCheckBox] = useState([]);
 
@@ -66,6 +68,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
       // where('deptCountry.code', '!=', ''),
     );
 
+    
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach((doc) => {
@@ -95,12 +98,11 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     }
 
     setCheckBox([...codeArray])
-    console.log(codeArray, '====d====')
     getDestinationFilterData(codeArray)
     // Your checkbox click handler logic goes here
 
   };
-  console.log(checkBox, '======checkbox')
+ 
 
   return (
 
@@ -123,8 +125,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
                   destinations.map((val, key) => {
                     return (
                       <div key={key}>
-                        <input type="checkbox" id="Zimbabwe" onClick={() => check(val.code)} />
-                        <label htmlFor={val.name}>{val.name}</label>
+                         <Checkbox label={val.name} handleClick={()=>check(val.code)}/>
                       </div>
                     )
                   })
@@ -140,8 +141,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
                 destinations.map((val, key) => {
                   return (
                     <div key={key}>
-                      <input type="checkbox" id="Zimbabwe" onClick={() => check(val.code)} />
-                      <label htmlFor={val.name}>{val.name}</label>
+                      <Checkbox label={val.name} handleClick={()=>check(val.code)}/>
                     </div>
                   )
                 })
