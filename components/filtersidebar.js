@@ -123,7 +123,14 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
                   destinations.map((val, key) => {
                     return (
                       <div key={key}>
-                        <input type="checkbox" id="Zimbabwe" onClick={() => check(val.code)} />
+                        <input
+                          type="checkbox"
+                          id="Zimbabwe"
+                          onClick={() => {
+                            setIsHide(false); // Add this line
+                            check(val.code);
+                          }}
+                        />
                         <label htmlFor={val.name}>{val.name}</label>
                       </div>
                     )

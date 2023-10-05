@@ -38,8 +38,8 @@
     background-color: #cc1817;
     color: #fff;
     border: 0px;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 5px 9px;
+    border-radius: 3px;
 }
 
 @media screen and (max-width: 787px) {
