@@ -6,7 +6,7 @@ const Checkbox = ({handleClick,label}) => {
         <div>
             <input
                 type="checkbox"
-                checked={isChecked} 
+                defaultChecked={isChecked} 
                 onClick={()=>{handleClick(); setIsChecked(!isChecked)}}
             />
             <label htmlFor={label}>{label}</label>
