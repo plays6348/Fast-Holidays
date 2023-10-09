@@ -48,8 +48,6 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
   //     list.push({ ...doc.data(), _id: doc.id });
   //   });
 
-
-
   //   const deptCountry = list.map(val => val.deptCountry);
 
   //   const uniqueArray = deptCountry.filter((obj, index, self) =>
@@ -78,14 +76,11 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     setDestination([...uniqueArray])
   }
 
-
   const [isHide, setIsHide] = useState(false);
 
   const modelClick = () => {
     setIsHide(true)
   }
-
-  const checkboxRef = useRef();
 
   const check = (code) => {
     let codeArray = [...checkBox];
@@ -95,28 +90,35 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     } else {
       codeArray.push(code);
     }
-
     setCheckBox([...codeArray])
-    console.log(codeArray, '====d====')
+    
     getDestinationFilterData(codeArray)
     // Your checkbox click handler logic goes here
-    const checkbox = checkboxRef.current.value;
 
+    // const handleOnChange = useCallback(
+    //   (e) => {
+    //     const index = e.target.name
+    //     let items = [...checkBox];
+    //     items[index].isChecked = e.target.checked;
+    //     setCheckeditems(items);
+    //   }, [checkedItems]
+    // );
+    // handleOnChange();
   };
-const [checking,setChecking]= useState(false)
- 
+
+
+const handleReset=(e)=>{
+  // console.log(e.target.checked)
+}
 
   return (
-
     <>
       {
         width && width < 767 ?
           <>
-
             <div className={styles.mobilefilterbtn} onClick={modelClick}>
               Select by Filter
             </div>
-
             {
               isHide &&
               <div className={styles.filterssiderbar}>
@@ -127,13 +129,7 @@ const [checking,setChecking]= useState(false)
                   destinations.map((val, key) => {
                     return (
                       <div key={key}>
-                        <input ref={checkboxRef}
-                         type="checkbox" 
-                         id="Zimbabwe" 
-                         onClick={() => check(val.code)}
-                         defaultChecked= {()=>setChecking(!checking)}
-                          />
-                        <label htmlFor={val.name}>{val.name}</label>
+                          <Checkbox label={val.name} handleClick={()=>check(val.code)}/>
                       </div>
                     )
                   })
@@ -145,6 +141,8 @@ const [checking,setChecking]= useState(false)
           <>
             <div className={styles.filterssiderbar}>
               <h2>Filter by Destination</h2>
+              <input onClick={(e)=>handleReset(e)} type='checkbox'/>
+              <label>Reset</label>
               {
                 destinations.map((val, key) => {
                   return (
@@ -158,9 +156,6 @@ const [checking,setChecking]= useState(false)
           </>
       }
     </>
-
-
-
   );
 };
 

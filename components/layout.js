@@ -558,7 +558,7 @@ export default function Layout({
         <div className={styles.child}>{children}</div>
       </Box>
       <Footer />
-      <div className={styles.fabContainer}>
+      {/* <div className={styles.fabContainer}>
         <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noreferrer">
           <div
             className={styles.fab1}
@@ -575,13 +575,13 @@ export default function Layout({
             <CallIcon />{number}
           </div>
         </a>
-      </div>
+      </div> */}
       {/* <Dialog
         open={showDialog}
         keepMounted
         onClose={() => setShowDialog(false)} */}
       {/* > */}
-      <DialogComponent />
+      {/* <DialogComponent /> */}
       {/* </Dialog> */}
     </div>
   );

@@ -131,7 +131,7 @@ export default function Fares() {
     getAllFares();
   }, [skip]);
 
-  // console.log(fares);
+  console.log('fares are',fares);
 
   return (
     <Layout
