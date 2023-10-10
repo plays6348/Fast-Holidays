@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import {
   collection,
   query,
@@ -95,17 +95,21 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     getDestinationFilterData(codeArray)
     // Your checkbox click handler logic goes here
 
-    // const handleOnChange = useCallback(
-    //   (e) => {
-    //     const index = e.target.name
-    //     let items = [...checkBox];
-    //     items[index].isChecked = e.target.checked;
-    //     setCheckeditems(items);
-    //   }, [checkedItems]
-    // );
-    // handleOnChange();
   };
+  // const [checkedItems, setCheckeditems] = useState(destinations)
+  const [newChecked,setNewChecked]=useState(false);
+  const handleOnChange = useCallback(
+    (e) => {
+      const index = e.target.checked
+      // let items = [...checkBox];
+      // items[index].isChecked = e.target.checked;
+      // setCheckBox(items);
+      console.log('this is usecallback index',index);
 
+    setNewChecked(e.target.checked)
+      
+    }, []
+  );
 
 const handleReset=(e)=>{
   // console.log(e.target.checked)
@@ -129,7 +133,13 @@ const handleReset=(e)=>{
                   destinations.map((val, key) => {
                     return (
                       <div key={key}>
-                          <Checkbox label={val.name} handleClick={()=>check(val.code)}/>
+                          <Checkbox label={val.name} newChecked={newChecked} handleClick={(e)=>{check(val.code);handleOnChange(e)}}/>
+                           {/* <input 
+                           checked={newChecked}
+                           type="checkbox" 
+                           onClick={(e) =>{ check(val.code); handleOnChange(e)}} 
+                           />*/}
+                        {/* <label htmlFor={val.name}>{val.name}</label> */}
                       </div>
                     )
                   })
@@ -147,7 +157,9 @@ const handleReset=(e)=>{
                 destinations.map((val, key) => {
                   return (
                     <div key={key}>
-                      <Checkbox label={val.name} handleClick={()=>check(val.code)}/>
+                      {/* <Checkbox label={val.name} handleClick={()=>check(val.code)}/> */}
+                      <input type="checkbox" id="Zimbabwe" onClick={() => check(val.code)} />
+                        <label htmlFor={val.name}>{val.name}</label>
                     </div>
                     )
                 })
