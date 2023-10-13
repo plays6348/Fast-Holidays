@@ -4237,6 +4237,11 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
+"next-hubspot@^1.1.6":
+  "integrity" "sha512-AWly2Qc1CZ/6U1hyEn+lPf0VpQqWhLd8u1N0kDhoff0hkpau6X8VCiVnS+D/XMXfad5trSsLFwIIm7Dm9LmK8g=="
+  "resolved" "https://registry.npmjs.org/next-hubspot/-/next-hubspot-1.1.6.tgz"
+  "version" "1.1.6"
+
 "next-sitemap@^1.6.133":
   "integrity" "sha512-kHXf4ZNAGLJyK16HbjzE5X9JlKwXtxW+9J4dh3oT7LSbU/+3bN+VqWjNw/776Otbanf7EJsvl51oQ78qQW5XBQ=="
   "resolved" "https://registry.npmjs.org/next-sitemap/-/next-sitemap-1.9.12.tgz"
@@ -4245,7 +4250,7 @@
     "@corex/deepmerge" "^2.6.148"
     "minimist" "^1.2.5"
 
-"next@*", "next@>=10.2.0", "next@11.0.1":
+"next@*", "next@>=10.2.0", "next@>=11.0.0", "next@11.0.1":
   "integrity" "sha512-yR7be7asNbvpVNpi6xxEg28wZ7Gqmj1nOt0sABH9qORmF3+pms2KZ7Cng33oK5nqPIzEEFJD0pp2PCe3/ueMIg=="
   "resolved" "https://registry.npmjs.org/next/-/next-11.0.1.tgz"
   "version" "11.0.1"

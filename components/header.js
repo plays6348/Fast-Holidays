@@ -150,6 +150,17 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Airlines</Typography>
                 </div>
               </Link>
+              <a target={"_blank"} href="https://fastvisaservices.co.uk/visa-application/" passHref>
+                <div
+                  className={
+                    router.pathname.includes('https://fastvisaservices.co.uk/visa-application/')
+                      ? styles.highlightedLink
+                      : styles.simpleLink
+                  }
+                >
+                  <Typography sx={muiStyles.logoLink}>Visa Service</Typography>
+                </div>
+              </a>
               <Link href="/send-inquiry" passHref>
                 <div
                   className={
@@ -159,17 +170,6 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   }
                 >
                   <Typography sx={muiStyles.logoLink}>Send Inquiry</Typography>
-                </div>
-              </Link>
-              <Link href="/beat-my-quote" passHref>
-                <div
-                  className={
-                    router.pathname.includes('/beat-my-quote')
-                      ? styles.highlightedLink
-                      : styles.simpleLink
-                  }
-                >
-                  <Typography sx={muiStyles.logoLink}>Beat My Quote</Typography>
                 </div>
               </Link>
               <div className={styles.simpleLink}>
@@ -213,6 +213,9 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
           <Link href="/contact-us">
             <MenuItem onClick={handleClose}>Contact Us</MenuItem>
           </Link>
+          <Link href="/beat-my-quote">
+          <MenuItem onClick={handleClose}>Beat My Quote</MenuItem>
+              </Link>
           <Link href="/privacy-policy">
             <MenuItem onClick={handleClose}>Privacy Policy</MenuItem>
           </Link>
