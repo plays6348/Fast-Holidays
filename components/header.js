@@ -150,7 +150,8 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Airlines</Typography>
                 </div>
               </Link>
-              <a target={"_blank"} href="https://fastvisaservices.co.uk/visa-application/">
+              <Link href="https://fastvisaservices.co.uk/visa-application/" passHref>
+              <a rel='noopener noreferrer' target={"_blank"} >
                 <div
                   className={
                     router.pathname.includes('https://fastvisaservices.co.uk/visa-application/')
@@ -161,6 +162,7 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Visa Service</Typography>
                 </div>
               </a>
+              </Link>
               <Link href="/send-inquiry" passHref>
                 <div
                   className={
