@@ -150,11 +150,11 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Airlines</Typography>
                 </div>
               </Link>
-              <Link href="https://fastvisaservices.co.uk/visa-application/" passHref>
+              <Link href="https://fastvisaservices.co.uk/visa-countries/" passHref>
               <a rel='noopener noreferrer' target={"_blank"} >
                 <div
                   className={
-                    router.pathname.includes('https://fastvisaservices.co.uk/visa-application/')
+                    router.pathname.includes('https://fastvisaservices.co.uk/visa-countries/')
                       ? styles.highlightedLink
                       : styles.simpleLink
                   }
