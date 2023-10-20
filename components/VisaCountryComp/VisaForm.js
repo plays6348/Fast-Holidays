@@ -31,9 +31,21 @@ const VisaForm = () => {
     <>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Stack spacing={2}>
-                <TextField label="Full name" type='text' {...register('fullName')}/>
-                <TextField label="Phone number" type='number' {...register('phone')}/>
-                <TextField label="Email" type='email' {...register('email')}/>
+                <TextField label="Full name" type='text' 
+                    {...register('fullName',{
+                        required: 'Name is required'
+                    })}
+                />
+                <TextField label="Phone number" type='number' 
+                    {...register('phone',{
+                        required: 'Phone is required'
+                    })}
+                />
+                <TextField label="Email" type='email' 
+                    {...register('email',{
+                        required: 'Email is required'
+                    })}
+                />
                 <TextField label="Nationality" type='text' {...register('nationality')}/>
                 <TextField label="City" type='text' {...register('city')}/>
 
