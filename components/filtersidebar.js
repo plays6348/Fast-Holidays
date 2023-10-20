@@ -30,7 +30,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [])
+  }, [destinations])
 
   const areObjectsEqual = (obj1, obj2) => {
     return obj1.name === obj2.name;
@@ -96,7 +96,7 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     // Your checkbox click handler logic goes here
 
   };
-  // const [checkedItems, setCheckeditems] = useState(destinations)
+
   const [newChecked,setNewChecked]=useState(false);
   const handleOnChange = useCallback(
     (e) => {
@@ -104,15 +104,14 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
       // let items = [...checkBox];
       // items[index].isChecked = e.target.checked;
       // setCheckBox(items);
-      console.log('this is usecallback index',index);
 
     setNewChecked(e.target.checked)
       
     }, []
   );
 
-const handleReset=(e)=>{
-  // console.log(e.target.checked)
+const handleReset=()=>{
+  setNewChecked('')
 }
 
   return (
@@ -125,7 +124,11 @@ const handleReset=(e)=>{
             </div>
             {
               isHide &&
+              
               <div className={styles.filterssiderbar}>
+
+                <input onClick={()=>handleReset()} type='checkbox'/>
+                <label>Reset</label>
                 <button className={styles.filterclosebtn} onClick={()=>{setIsHide(false)}}>&#x2715;</button>
                 {/* <Icon onClick={()=>{setIsHide(false)}}>cross</Icon> */}
                 <h2>Filter by Destination</h2>
@@ -133,13 +136,13 @@ const handleReset=(e)=>{
                   destinations.map((val, key) => {
                     return (
                       <div key={key}>
-                          <Checkbox label={val.name} newChecked={newChecked} handleClick={(e)=>{check(val.code);handleOnChange(e)}}/>
-                           {/* <input 
+                          {/* <Checkbox label={val.name} newChecked={newChecked} handleClick={(e)=>{check(val.code);handleOnChange(e)}}/> */}
+                           <input 
                            checked={newChecked}
                            type="checkbox" 
                            onClick={(e) =>{ check(val.code); handleOnChange(e)}} 
-                           />*/}
-                        {/* <label htmlFor={val.name}>{val.name}</label> */}
+                           />
+                        <label htmlFor={val.name}>{val.name}</label>
                       </div>
                     )
                   })

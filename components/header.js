@@ -161,15 +161,15 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Send Inquiry</Typography>
                 </div>
               </Link>
-              <Link href="/beat-my-quote" passHref>
+              <Link href="/visa-service" passHref>
                 <div
                   className={
-                    router.pathname.includes('/beat-my-quote')
+                    router.pathname.includes('/visa-service')
                       ? styles.highlightedLink
                       : styles.simpleLink
                   }
                 >
-                  <Typography sx={muiStyles.logoLink}>Beat My Quote</Typography>
+                  <Typography sx={muiStyles.logoLink}>Visa Services</Typography>
                 </div>
               </Link>
               <div className={styles.simpleLink}>
@@ -210,6 +210,9 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
             horizontal: 'left',
           }}
         >
+          <Link href="/beat-my-quote" passHref>
+            <MenuItem onClick={handleClose}>Beat My Quote</MenuItem>
+          </Link>
           <Link href="/contact-us">
             <MenuItem onClick={handleClose}>Contact Us</MenuItem>
           </Link>
