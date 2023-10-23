@@ -1,11 +1,13 @@
 import { Button, InputLabel, MenuItem, Select, Stack, TextField } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
+import { useRouter } from 'next/router';
 
-const VisaForm = () => {
-    const handleClick= (e)=>{
-        e.preventDefault();
-    }
+const VisaForm = ({countryName}) => {
+    const [dialog, setShowDialog]=useState()
+    console.log(countryName)
+    const router = useRouter();
     const form= useForm({
         defaultValues:{
             email:'',
@@ -17,15 +19,46 @@ const VisaForm = () => {
             city:'',
             statusUK:'',
             callTime:'',
+            countryName: countryName
         }
     });
 
     const {register, handleSubmit}= form;
 
     const onSubmit= (data)=>{
-        window.location.href= `mailto:musm123456@gmail.com?name=${data.fullName}&email=${data.email}&phone=${data.phone}, im looking for
-        visa issue ${data.visaIssue} and uk status ${data.statusUK}
-        `
+        console.log(data)
+        if (
+            data
+          ) {
+            emailjs
+              .send(
+                'service_iodawml',
+                'template_lapocf5',
+                { ...data },
+                'tL_Vpyj5WxQRqs6ec',
+              )
+              .then((res) => {
+                console.log(res);
+                setShowDialog({
+                  title: 'Successfull',
+                  msg: 'Inquiry sent successfully, We will call you for further processing.',
+                });
+                router.push('/thankyou')
+              })
+              .catch((err) => {
+                console.log(err);
+                setShowDialog({
+                  title: 'Something went wrong',
+                  msg: 'Inquiry not sent.',
+                });
+              });
+          } else {
+            // setShowDialog({
+            //   title: 'Error',
+            //   msg: 'Kindly fill the Form.',
+            // });
+            router.push('/thankyou')
+          }
     }
   return (
     <>
