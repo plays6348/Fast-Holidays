@@ -5,8 +5,6 @@ import emailjs from '@emailjs/browser';
 import { useRouter } from 'next/router';
 
 const VisaForm = ({countryName}) => {
-    const [dialog, setShowDialog]=useState()
-    console.log(countryName)
     const router = useRouter();
     const form= useForm({
         defaultValues:{
@@ -26,10 +24,7 @@ const VisaForm = ({countryName}) => {
     const {register, handleSubmit}= form;
 
     const onSubmit= (data)=>{
-        console.log(data)
-        if (
-            data
-          ) {
+        if (data) {
             emailjs
               .send(
                 'service_iodawml',
@@ -38,25 +33,11 @@ const VisaForm = ({countryName}) => {
                 'tL_Vpyj5WxQRqs6ec',
               )
               .then((res) => {
-                console.log(res);
-                setShowDialog({
-                  title: 'Successfull',
-                  msg: 'Inquiry sent successfully, We will call you for further processing.',
-                });
                 router.push('/thankyou')
               })
               .catch((err) => {
-                console.log(err);
-                setShowDialog({
-                  title: 'Something went wrong',
-                  msg: 'Inquiry not sent.',
-                });
               });
           } else {
-            // setShowDialog({
-            //   title: 'Error',
-            //   msg: 'Kindly fill the Form.',
-            // });
             router.push('/thankyou')
           }
     }
@@ -64,23 +45,32 @@ const VisaForm = ({countryName}) => {
     <>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Stack spacing={2}>
-                <TextField label="Full name" type='text' 
-                    {...register('fullName',{
-                        required: 'Name is required'
-                    })}
-                />
-                <TextField label="Phone number" type='number' 
-                    {...register('phone',{
-                        required: 'Phone is required'
-                    })}
-                />
-                <TextField label="Email" type='email' 
-                    {...register('email',{
-                        required: 'Email is required'
-                    })}
-                />
-                <TextField label="Nationality" type='text' {...register('nationality')}/>
-                <TextField label="City" type='text' {...register('city')}/>
+                <div>
+                    <TextField label="Full name" type='text' 
+                        {...register('fullName',{
+                            required: 'Name is required'
+                        })}
+                    />
+                    <TextField label="Phone number" type='number' 
+                        {...register('phone',{
+                            required: 'Phone is required'
+                        })}
+                    />
+                </div>
+                <div>
+                    <TextField label="Email" type='email' 
+                        {...register('email',{
+                            required: 'Email is required'
+                        })}
+                    />
+                    <TextField label="Nationality" type='text' {...register('nationality')}/>
+                </div>
+                <div>
+                    <TextField label="City" type='text' {...register('city')}/>
+                    <TextField label="Main Purpose(s) of the journey" type='text' {...register('mainPurpose')}/>
+                </div>
+                
+                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
 
                 <InputLabel id="status-select">Status in UK</InputLabel>
                 <Select
@@ -106,9 +96,6 @@ const VisaForm = ({countryName}) => {
                     <MenuItem value={'schengen-yes'}>Yes</MenuItem>
                     <MenuItem value={'schengen-no'}>No</MenuItem>
                 </Select>
-
-                <TextField label="Main Purpose(s) of the journey" type='text' {...register('mainPurpose')}/>
-                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
 
                 <Button type='submit' variant='contained' color='primary'>
                     Send Email

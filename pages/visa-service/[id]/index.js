@@ -11,7 +11,7 @@ import VisaForm from '@/components/VisaCountryComp/VisaForm';
 const useStyles= makeStyles(()=>{
   return {
     divCenter:{
-      maxWidth: '1200px',
+      maxWidth: '1366px',
       margin: 'auto',
       justifyContent: 'center',
       marginTop: '2rem',
@@ -31,7 +31,7 @@ const useStyles= makeStyles(()=>{
       borderRadius: '12px'
     },
     imgWidth:{
-      width: '470px',
+      width: '430px',
       height: '200px',
       [theme.breakpoints.down("md")]: {
         width: '270px',
@@ -60,11 +60,11 @@ const CountryVisaDetails = ({countryProps}) => {
           </div>
           <div className={classes.divCenter}>
             <Grid container gap={3} className={classes.gridCenter}>
-              <Grid item xs={10} sm={8} md={5} gap={4} className={classes.gridPadMin}>
-                <Grid item xs={12} sm={10} md={10} >
+              <Grid item xs={10} sm={8} md={4} gap={4} className={classes.gridPadMin}>
+                <Grid item xs={12} sm={10} md={8} >
                   <img className={classes.imgWidth} src={country.img}/>
                 </Grid>
-                <Grid item xs={12} sm={10} md={10} >
+                <Grid item xs={12} sm={10} md={8} >
                   <h2>{country.name}</h2>
                   <p>Country Details : {country.details}</p>
                 </Grid>
