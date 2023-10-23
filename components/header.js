@@ -150,19 +150,6 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Airlines</Typography>
                 </div>
               </Link>
-              <Link href="https://fastvisaservices.co.uk/visa-countries/" passHref>
-              <a rel='noopener noreferrer' target={"_blank"} >
-                <div
-                  className={
-                    router.pathname.includes('https://fastvisaservices.co.uk/visa-countries/')
-                      ? styles.highlightedLink
-                      : styles.simpleLink
-                  }
-                >
-                  <Typography sx={muiStyles.logoLink}>Visa Service</Typography>
-                </div>
-              </a>
-              </Link>
               <Link href="/send-inquiry" passHref>
                 <div
                   className={
@@ -172,6 +159,17 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   }
                 >
                   <Typography sx={muiStyles.logoLink}>Send Inquiry</Typography>
+                </div>
+              </Link>
+              <Link href="/visa-service" passHref>
+                <div
+                  className={
+                    router.pathname.includes('/visa-service')
+                      ? styles.highlightedLink
+                      : styles.simpleLink
+                  }
+                >
+                  <Typography sx={muiStyles.logoLink}>Visa Services</Typography>
                 </div>
               </Link>
               <div className={styles.simpleLink}>
@@ -212,12 +210,12 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
             horizontal: 'left',
           }}
         >
+          <Link href="/beat-my-quote" passHref>
+            <MenuItem onClick={handleClose}>Beat My Quote</MenuItem>
+          </Link>
           <Link href="/contact-us">
             <MenuItem onClick={handleClose}>Contact Us</MenuItem>
           </Link>
-          <Link href="/beat-my-quote">
-          <MenuItem onClick={handleClose}>Beat My Quote</MenuItem>
-              </Link>
           <Link href="/privacy-policy">
             <MenuItem onClick={handleClose}>Privacy Policy</MenuItem>
           </Link>
