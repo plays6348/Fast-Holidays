@@ -11,11 +11,12 @@ import VisaForm from '@/components/VisaCountryComp/VisaForm';
 const useStyles= makeStyles(()=>{
   return {
     divCenter:{
-      maxWidth: '1200px',
+      maxWidth: '1366px',
       margin: 'auto',
       justifyContent: 'center',
       marginTop: '2rem',
       marginBottom: '3rem',
+      height: 'min-content'
     },
     gridPad:{
       padding: '12px',
@@ -24,14 +25,15 @@ const useStyles= makeStyles(()=>{
     },
     gridPadMin:{
       boxShadow:'rgba(0, 0, 0, 0.1) 0px 4px 12px;',
-      height: "min-content",
-      border: 'none',
+      // height: "max-content",
+      // display: 'block',
+      // overflow: 'auto',
       padding: '12px',
       backgroundColor: '#CEEAE6',
       borderRadius: '12px'
     },
     imgWidth:{
-      width: '470px',
+      width: '430px',
       height: '200px',
       [theme.breakpoints.down("md")]: {
         width: '270px',
@@ -40,7 +42,7 @@ const useStyles= makeStyles(()=>{
     },
     gridCenter:{
       margin: 'auto',
-      justifyContent: 'center'
+      justifyContent: 'center',
     }
   }
 })
@@ -60,16 +62,27 @@ const CountryVisaDetails = ({countryProps}) => {
           </div>
           <div className={classes.divCenter}>
             <Grid container gap={3} className={classes.gridCenter}>
-              <Grid item xs={10} sm={8} md={5} gap={4} className={classes.gridPadMin}>
-                <Grid item xs={12} sm={10} md={10} >
+              <Grid item xs={10} sm={8} md={4} gap={4} className={classes.gridPadMin}>
+                <Grid item xs={12} sm={10} md={8} >
                   <img className={classes.imgWidth} src={country.img}/>
                 </Grid>
-                <Grid item xs={12} sm={10} md={10} >
+                <Grid item xs={12} sm={10} md={8} >
                   <h2>{country.name}</h2>
-                  <p>Country Details : {country.details}</p>
+                  <p className={classes.imgWidth}> 
+                    A Schengen Visa is a Travel Document which can access 26 European Countries. 
+                    It Offers Benefits such as seamless Travel, Shorter Processing times, 
+                    cost-effective, extended stays, and Versatility for tourism. To obtain the Schengen Visa, 
+                    you need to select your main destination, Complete the 
+                    Application process, Deposit the fee, Wait for the Processing of 
+                    your Schengen Visa, and upon your Arrival, your Schengen visa will be attached 
+                    to your Passport. The Requirement for your Schengen visa documents varies from 
+                    destination to destination. Schengen visa will open your doors to all the 26 Countries 
+                    in Europe with Ease and Comfort.
+                  </p>
                 </Grid>
               </Grid>
               <Grid item xs={10} sm={8} md={6} className={classes.gridPad}>
+              <h2 style={{textAlign: 'center', marginTop: '-4px'}}>Inquire Us</h2>
                 <VisaForm countryName={country.name}/>
               </Grid>
             </Grid>

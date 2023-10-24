@@ -3,10 +3,23 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { useRouter } from 'next/router';
+import { makeStyles } from '@mui/styles';
+import { theme } from '@/styles/theme';
+
+const useStyles= makeStyles(()=>{
+    return {
+        divMargin:{
+            display: 'flex',
+            justifyContent: 'space-around',
+            [theme.breakpoints.down("md")]: {
+                flexDirection: 'column'
+              },
+        },
+    }
+})
 
 const VisaForm = ({countryName}) => {
-    const [dialog, setShowDialog]=useState()
-    console.log(countryName)
+    const classes= useStyles();
     const router = useRouter();
     const form= useForm({
         defaultValues:{
@@ -19,6 +32,7 @@ const VisaForm = ({countryName}) => {
             city:'',
             statusUK:'',
             callTime:'',
+            responsePref:'',
             countryName: countryName
         }
     });
@@ -26,10 +40,7 @@ const VisaForm = ({countryName}) => {
     const {register, handleSubmit}= form;
 
     const onSubmit= (data)=>{
-        console.log(data)
-        if (
-            data
-          ) {
+        if (data) {
             emailjs
               .send(
                 'service_iodawml',
@@ -38,25 +49,11 @@ const VisaForm = ({countryName}) => {
                 'tL_Vpyj5WxQRqs6ec',
               )
               .then((res) => {
-                console.log(res);
-                setShowDialog({
-                  title: 'Successfull',
-                  msg: 'Inquiry sent successfully, We will call you for further processing.',
-                });
                 router.push('/thankyou')
               })
               .catch((err) => {
-                console.log(err);
-                setShowDialog({
-                  title: 'Something went wrong',
-                  msg: 'Inquiry not sent.',
-                });
               });
           } else {
-            // setShowDialog({
-            //   title: 'Error',
-            //   msg: 'Kindly fill the Form.',
-            // });
             router.push('/thankyou')
           }
     }
@@ -64,23 +61,82 @@ const VisaForm = ({countryName}) => {
     <>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Stack spacing={2}>
-                <TextField label="Full name" type='text' 
-                    {...register('fullName',{
-                        required: 'Name is required'
-                    })}
-                />
-                <TextField label="Phone number" type='number' 
-                    {...register('phone',{
-                        required: 'Phone is required'
-                    })}
-                />
-                <TextField label="Email" type='email' 
-                    {...register('email',{
-                        required: 'Email is required'
-                    })}
-                />
-                <TextField label="Nationality" type='text' {...register('nationality')}/>
-                <TextField label="City" type='text' {...register('city')}/>
+                <div className={classes.divMargin}>
+                    <TextField label="Full name" type='text' 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                        {...register('fullName',{
+                            required: 'Name is required'
+                        })}
+                    />
+                    <TextField label="Phone number" type='number' 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                        {...register('phone',{
+                            required: 'Phone is required'
+                        })}
+                    />
+                </div>
+                <div className={classes.divMargin}>
+                    <TextField label="Email" type='email'
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                        {...register('email',{
+                            required: 'Email is required'
+                        })}
+                    />
+                    <TextField label="Nationality" 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                    type='text' {...register('nationality')}/>
+                </div>
+                <div className={classes.divMargin}>
+                    <TextField label="City" 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                    type='text' {...register('city')}/>
+                    <TextField label="Main Purpose(s) of the journey" 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                    type='text' {...register('mainPurpose')}/>
+                </div>
+
+                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
+
+                <InputLabel id="response-preferred-by">Response Preferred By</InputLabel>
+                <Select
+                    {...register("responsePref")}
+                    labelId="response-preferred-by"
+                    id="simple-response-pref"
+                    label="Response Prefer"
+                >
+                    <MenuItem value={'prefer-email'}>By Email</MenuItem>
+                    <MenuItem value={'prefer-call'}>By Call</MenuItem>
+                </Select>
 
                 <InputLabel id="status-select">Status in UK</InputLabel>
                 <Select
@@ -106,9 +162,6 @@ const VisaForm = ({countryName}) => {
                     <MenuItem value={'schengen-yes'}>Yes</MenuItem>
                     <MenuItem value={'schengen-no'}>No</MenuItem>
                 </Select>
-
-                <TextField label="Main Purpose(s) of the journey" type='text' {...register('mainPurpose')}/>
-                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
 
                 <Button type='submit' variant='contained' color='primary'>
                     Send Email
