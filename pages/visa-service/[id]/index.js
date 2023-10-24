@@ -33,13 +33,10 @@ const useStyles= makeStyles(()=>{
       borderRadius: '12px'
     },
     imgWidth:{
-      width: '430px',
+      width: '100%',
       height: '200px',
-      [theme.breakpoints.down("md")]: {
-        width: '270px',
-        justifyContent: "center",
-      },
     },
+    
     gridCenter:{
       margin: 'auto',
       justifyContent: 'center',
@@ -62,13 +59,13 @@ const CountryVisaDetails = ({countryProps}) => {
           </div>
           <div className={classes.divCenter}>
             <Grid container gap={3} className={classes.gridCenter}>
-              <Grid item xs={10} sm={8} md={4} gap={4} className={classes.gridPadMin}>
-                <Grid item xs={12} sm={10} md={8} >
+              <Grid item xs={10} sm={8} md={3} gap={4} className={classes.gridPadMin}>
+                <Grid item md={12} >
                   <img className={classes.imgWidth} src={country.img}/>
                 </Grid>
-                <Grid item xs={12} sm={10} md={8} >
+                <Grid md={12} >
                   <h2>{country.name}</h2>
-                  <p className={classes.imgWidth}> 
+                  <p>
                     A Schengen Visa is a Travel Document which can access 26 European Countries. 
                     It Offers Benefits such as seamless Travel, Shorter Processing times, 
                     cost-effective, extended stays, and Versatility for tourism. To obtain the Schengen Visa, 

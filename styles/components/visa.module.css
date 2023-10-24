@@ -1,0 +1,56 @@
+/* airlines */
+.airlinesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem 0;
+  }
+  
+  .airlines {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  @media screen and (max-width: 950px) {
+    .airlines {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 786px) {
+    .airlines {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 580px) {
+    .airlines {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .airlineLogoContainer {
+    /* width: 100%; */
+    height: auto;
+    border: 1px solid #8080803f;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    margin: 0.8rem;
+    transition: transform .3s ease-in-out;
+  }
+  .airlineLogoContainer:hover{
+    transform: scale(1.09);
+  }
+  
+  .airlineLogo {
+    width: 100%;
+    height: 80px;
+  }
+  
