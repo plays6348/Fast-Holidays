@@ -52,7 +52,7 @@ async function fetchDataFromFireBase() {
   return data;
 }
 
-const visaService = () => {
+const VisaService = () => {
   const classes= useStyles();
   const [countries, setCountries]= useState([]);
   useEffect(()=>{
@@ -95,4 +95,4 @@ const visaService = () => {
   )
 }
 
-export default visaService
+export default VisaService
