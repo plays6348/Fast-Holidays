@@ -61,7 +61,7 @@ const CountryVisaDetails = ({countryProps}) => {
             <Grid container gap={3} className={classes.gridCenter}>
               <Grid item xs={10} sm={8} md={3} gap={4} className={classes.gridPadMin}>
                 <Grid item md={12} >
-                  <img className={classes.imgWidth} src={country.img}/>
+                  <img alt='images' className={classes.imgWidth} src={country.img}/>
                 </Grid>
                 <Grid md={12} >
                   <h2>{country.name}</h2>
