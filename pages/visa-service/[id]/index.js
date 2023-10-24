@@ -70,6 +70,7 @@ const CountryVisaDetails = ({countryProps}) => {
                 </Grid>
               </Grid>
               <Grid item xs={10} sm={8} md={6} className={classes.gridPad}>
+              <h2 style={{textAlign: 'center', marginTop: '-4px'}}>Inquire Us</h2>
                 <VisaForm countryName={country.name}/>
               </Grid>
             </Grid>

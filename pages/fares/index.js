@@ -35,8 +35,6 @@ export default function Fares() {
   const [fetching, setFetching] = useState();
   const [blockApi, setBlockApi] = useState(false);
 
-  console.log(airlineCode)
-
   const getData = async () => {
     if (!blockApi) {
       setFetching(true);

@@ -3,8 +3,23 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { useRouter } from 'next/router';
+import { makeStyles } from '@mui/styles';
+import { theme } from '@/styles/theme';
+
+const useStyles= makeStyles(()=>{
+    return {
+        divMargin:{
+            display: 'flex',
+            justifyContent: 'space-around',
+            [theme.breakpoints.down("md")]: {
+                flexDirection: 'column'
+              },
+        },
+    }
+})
 
 const VisaForm = ({countryName}) => {
+    const classes= useStyles();
     const router = useRouter();
     const form= useForm({
         defaultValues:{
@@ -45,29 +60,68 @@ const VisaForm = ({countryName}) => {
     <>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Stack spacing={2}>
-                <div>
+                <div className={classes.divMargin}>
                     <TextField label="Full name" type='text' 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
                         {...register('fullName',{
                             required: 'Name is required'
                         })}
                     />
                     <TextField label="Phone number" type='number' 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
                         {...register('phone',{
                             required: 'Phone is required'
                         })}
                     />
                 </div>
-                <div>
-                    <TextField label="Email" type='email' 
+                <div className={classes.divMargin}>
+                    <TextField label="Email" type='email'
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
                         {...register('email',{
                             required: 'Email is required'
                         })}
                     />
-                    <TextField label="Nationality" type='text' {...register('nationality')}/>
+                    <TextField label="Nationality" 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                    type='text' {...register('nationality')}/>
                 </div>
-                <div>
-                    <TextField label="City" type='text' {...register('city')}/>
-                    <TextField label="Main Purpose(s) of the journey" type='text' {...register('mainPurpose')}/>
+                <div className={classes.divMargin}>
+                    <TextField label="City" 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                    type='text' {...register('city')}/>
+                    <TextField label="Main Purpose(s) of the journey" 
+                    sx={{
+                        width:'45%',
+                        [theme.breakpoints.down("md")]: {
+                            width: '100%'
+                          },
+                    }}
+                    type='text' {...register('mainPurpose')}/>
                 </div>
                 
                 <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
