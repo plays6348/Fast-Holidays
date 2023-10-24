@@ -32,6 +32,7 @@ const VisaForm = ({countryName}) => {
             city:'',
             statusUK:'',
             callTime:'',
+            responsePref:'',
             countryName: countryName
         }
     });
@@ -123,8 +124,19 @@ const VisaForm = ({countryName}) => {
                     }}
                     type='text' {...register('mainPurpose')}/>
                 </div>
-                
+
                 <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
+
+                <InputLabel id="response-preferred-by">Response Preferred By</InputLabel>
+                <Select
+                    {...register("responsePref")}
+                    labelId="response-preferred-by"
+                    id="simple-response-pref"
+                    label="Response Prefer"
+                >
+                    <MenuItem value={'prefer-email'}>By Email</MenuItem>
+                    <MenuItem value={'prefer-call'}>By Call</MenuItem>
+                </Select>
 
                 <InputLabel id="status-select">Status in UK</InputLabel>
                 <Select

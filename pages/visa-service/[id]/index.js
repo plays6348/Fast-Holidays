@@ -25,8 +25,9 @@ const useStyles= makeStyles(()=>{
     },
     gridPadMin:{
       boxShadow:'rgba(0, 0, 0, 0.1) 0px 4px 12px;',
-      // height: "min-content",
-      border: 'none',
+      // height: "max-content",
+      // display: 'block',
+      // overflow: 'auto',
       padding: '12px',
       backgroundColor: '#CEEAE6',
       borderRadius: '12px'
@@ -41,7 +42,7 @@ const useStyles= makeStyles(()=>{
     },
     gridCenter:{
       margin: 'auto',
-      justifyContent: 'center'
+      justifyContent: 'center',
     }
   }
 })
