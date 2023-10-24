@@ -16,6 +16,7 @@ const useStyles= makeStyles(()=>{
       justifyContent: 'center',
       marginTop: '2rem',
       marginBottom: '3rem',
+      height: 'min-content'
     },
     gridPad:{
       padding: '12px',
@@ -24,7 +25,7 @@ const useStyles= makeStyles(()=>{
     },
     gridPadMin:{
       boxShadow:'rgba(0, 0, 0, 0.1) 0px 4px 12px;',
-      height: "min-content",
+      // height: "min-content",
       border: 'none',
       padding: '12px',
       backgroundColor: '#CEEAE6',
@@ -66,7 +67,17 @@ const CountryVisaDetails = ({countryProps}) => {
                 </Grid>
                 <Grid item xs={12} sm={10} md={8} >
                   <h2>{country.name}</h2>
-                  <p>Country Details : {country.details}</p>
+                  <p className={classes.imgWidth}> 
+                    A Schengen Visa is a Travel Document which can access 26 European Countries. 
+                    It Offers Benefits such as seamless Travel, Shorter Processing times, 
+                    cost-effective, extended stays, and Versatility for tourism. To obtain the Schengen Visa, 
+                    you need to select your main destination, Complete the 
+                    Application process, Deposit the fee, Wait for the Processing of 
+                    your Schengen Visa, and upon your Arrival, your Schengen visa will be attached 
+                    to your Passport. The Requirement for your Schengen visa documents varies from 
+                    destination to destination. Schengen visa will open your doors to all the 26 Countries 
+                    in Europe with Ease and Comfort.
+                  </p>
                 </Grid>
               </Grid>
               <Grid item xs={10} sm={8} md={6} className={classes.gridPad}>
