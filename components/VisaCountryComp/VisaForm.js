@@ -125,19 +125,6 @@ const VisaForm = ({countryName}) => {
                     type='text' {...register('mainPurpose')}/>
                 </div>
 
-                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
-
-                <InputLabel id="response-preferred-by">Response Preferred By</InputLabel>
-                <Select
-                    {...register("responsePref")}
-                    labelId="response-preferred-by"
-                    id="simple-response-pref"
-                    label="Response Prefer"
-                >
-                    <MenuItem value={'prefer-email'}>By Email</MenuItem>
-                    <MenuItem value={'prefer-call'}>By Call</MenuItem>
-                </Select>
-
                 <InputLabel id="status-select">Status in UK</InputLabel>
                 <Select
                     {...register("statusUK")}
@@ -162,6 +149,19 @@ const VisaForm = ({countryName}) => {
                     <MenuItem value={'schengen-yes'}>Yes</MenuItem>
                     <MenuItem value={'schengen-no'}>No</MenuItem>
                 </Select>
+
+                <InputLabel id="response-preferred-by">Response Preferred By</InputLabel>
+                <Select
+                    {...register("responsePref")}
+                    labelId="response-preferred-by"
+                    id="simple-response-pref"
+                    label="Response Prefer"
+                >
+                    <MenuItem value={'prefer-email'}>By Email</MenuItem>
+                    <MenuItem value={'prefer-call'}>By Call</MenuItem>
+                </Select>
+
+                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
 
                 <Button type='submit' variant='contained' color='primary'>
                     Send Email

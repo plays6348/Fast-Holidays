@@ -15,8 +15,15 @@
     margin-bottom: 20px;
   }
   
-  /* a {
+  .backhomebtn {
+    background-color: #cc1817;
+    padding: 10px 20px;
     text-decoration: none;
-    color: #0070f3;
+    border: none;
+    color: #fff;
     font-weight: 600;
-  } */
+    cursor: pointer;
+  }
+  .backhomebtn:hover{
+    background-color: rgb(142, 16, 16);
+  }

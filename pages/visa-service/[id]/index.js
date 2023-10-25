@@ -16,20 +16,23 @@ const useStyles= makeStyles(()=>{
       justifyContent: 'center',
       marginTop: '2rem',
       marginBottom: '3rem',
-      height: 'min-content'
+      height: 'min-content',
     },
     gridPad:{
+      borderRadius: '5px',
+      boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
       padding: '12px',
-      backgroundColor: '#CEEAE6',
+      backgroundColor: 'transparent',
       borderRadius: '12px'
     },
     gridPadMin:{
-      boxShadow:'rgba(0, 0, 0, 0.1) 0px 4px 12px;',
+      borderRadius: '5px',
+      boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
       // height: "max-content",
       // display: 'block',
       // overflow: 'auto',
       padding: '12px',
-      backgroundColor: '#CEEAE6',
+      backgroundColor: 'transparent',
       borderRadius: '12px'
     },
     imgWidth:{
