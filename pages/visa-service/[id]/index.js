@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid, ThemeProvider } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { theme } from '@/styles/theme';
@@ -7,6 +7,7 @@ import Layout from '@/components/layout';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
 import VisaForm from '@/components/VisaCountryComp/VisaForm';
+import { useRouter } from 'next/router';
 
 const useStyles= makeStyles(()=>{
   return {
@@ -25,9 +26,6 @@ const useStyles= makeStyles(()=>{
     },
     gridPadMin:{
       boxShadow:'rgba(0, 0, 0, 0.1) 0px 4px 12px;',
-      // height: "max-content",
-      // display: 'block',
-      // overflow: 'auto',
       padding: '12px',
       backgroundColor: '#CEEAE6',
       borderRadius: '12px'
@@ -48,8 +46,26 @@ const useStyles= makeStyles(()=>{
 })
 
 const CountryVisaDetails = ({countryProps}) => {
+  console.log(countryProps)
+
+  // const [country, setCountry]= useState()
+  // const router= useRouter();
+  // const countryID= router.query.id;
+
+  // const getSingleVisaCountry= async ()=>{
+  //   const docRef= doc(db,'visaCountries', countryID);
+  //   const docSnap= await getDoc(docRef);
+  //   const singleCountry= JSON.stringify(docSnap.data());
+  //   setCountry(JSON.parse(singleCountry));
+  // };
+
+  // useEffect(()=>{
+  //   getSingleVisaCountry()
+  // },[])
+
   const country= JSON.parse(countryProps)
   const classes= useStyles();
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -60,11 +76,30 @@ const CountryVisaDetails = ({countryProps}) => {
               alt={`all destinations banner`}
             />
           </div>
-          <div className={classes.divCenter}>
+          <div style={{
+            maxWidth: '1366px',
+            margin: 'auto',
+            justifyContent: 'center',
+            marginTop: '2rem',
+            marginBottom: '3rem',
+            height: 'min-content'
+          }}>
             <Grid container gap={3} className={classes.gridCenter}>
-              <Grid item xs={10} sm={8} md={4} gap={4} className={classes.gridPadMin}>
+              <Grid item xs={10} sm={8} md={4} gap={4} sx={{
+                boxShadow:'rgba(0, 0, 0, 0.1) 0px 4px 12px;',
+                padding: '12px',
+                backgroundColor: '#CEEAE6',
+                borderRadius: '12px'
+              }}>
                 <Grid item xs={12} sm={10} md={8} >
-                  <img className={classes.imgWidth} src={country.img}/>
+                  <img style={{
+                    width: '430px',
+                    height: '200px',
+                    [theme.breakpoints.down("md")]: {
+                      width: '270px',
+                      justifyContent: "center",
+                    },
+                  }} src={country.img}/>
                 </Grid>
                 <Grid item xs={12} sm={10} md={8} >
                   <h2>{country.name}</h2>
@@ -81,9 +116,13 @@ const CountryVisaDetails = ({countryProps}) => {
                   </p>
                 </Grid>
               </Grid>
-              <Grid item xs={10} sm={8} md={6} className={classes.gridPad}>
+              <Grid item xs={10} sm={8} md={6} sx={{
+                padding: '12px',
+                backgroundColor: '#CEEAE6',
+                borderRadius: '12px'
+              }}>
               <h2 style={{textAlign: 'center', marginTop: '-4px'}}>Inquire Us</h2>
-                <VisaForm countryName={country.name}/>
+                <VisaForm countryName={'test'}/>
               </Grid>
             </Grid>
           </div>
@@ -95,23 +134,32 @@ const CountryVisaDetails = ({countryProps}) => {
 
 export default CountryVisaDetails
 
-export const getStaticPaths= async (id) => {
-  const snapshot= await getDocs(collection(db, 'visaCountries'));
-  const paths= snapshot.docs.map(doc=>{
-    return{
-      params: { id: doc.id.toString()}
-    }
-  })
-  return {
-    paths,
-    fallback: false
-  }
-}
+// export const getStaticPaths= async (id) => {
+//   const snapshot= await getDocs(collection(db, 'visaCountries'));
+//   const paths= snapshot.docs.map(doc=>{
+//     return{
+//       params: { id: doc.id.toString()}
+//     }
+//   })
+//   return {
+//     paths,
+//     fallback: false
+//   }
+// }
 
-export const getStaticProps= async (context) => {
-  const id= context.params.id;
-  const docRef= doc(db,'visaCountries', id);
-  const docSnap= await getDoc(docRef);
+// export const getStaticProps= async (context) => {
+//   const id= context.params.id;
+//   const docRef= doc(db,'visaCountries', id);
+//   const docSnap= await getDoc(docRef);
+//   return {
+//     props: { countryProps: JSON.stringify(docSnap.data()) || null},
+//   }
+// }
+export const getServerSideProps = async (context) => {
+    const id= context.params.id;
+    const docRef= doc(db,'visaCountries', id);
+    const docSnap= await getDoc(docRef);
+
   return {
     props: { countryProps: JSON.stringify(docSnap.data()) || null},
   }
