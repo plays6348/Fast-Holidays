@@ -40,6 +40,9 @@ const VisaService = () => {
                 alt={`all destinations banner`}
               />
             </div>
+            <div>
+              <h2 className={visaStyles.visaheading}>Apply for Visa Now</h2>
+            </div>
            <div className={visaStyles.airlinesContainer}>
               <div className={visaStyles.airlines}>
                 {countries.map(count=>(
@@ -50,6 +53,7 @@ const VisaService = () => {
                           src={count.img}
                           alt={`all destinations banner`}
                         />
+                        <span className={visaStyles.applyNowButton}>Apply Now</span>
                       {count.name}
                     </div>
                   </Link>

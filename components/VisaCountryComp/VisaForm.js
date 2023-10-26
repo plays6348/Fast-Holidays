@@ -164,7 +164,7 @@ const VisaForm = ({countryName}) => {
                 <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
 
                 <Button type='submit' variant='contained' color='primary'>
-                    Send Email
+                    Apply Now
                 </Button>
                 
             </Stack>

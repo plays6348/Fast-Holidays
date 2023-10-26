@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Grid, ThemeProvider } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { theme } from '@/styles/theme';
@@ -7,6 +7,7 @@ import Layout from '@/components/layout';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
 import VisaForm from '@/components/VisaCountryComp/VisaForm';
+import { useRouter } from 'next/router';
 
 const useStyles= makeStyles(()=>{
   return {
@@ -48,8 +49,10 @@ const useStyles= makeStyles(()=>{
 })
 
 const CountryVisaDetails = ({countryProps}) => {
+
   const country= JSON.parse(countryProps)
   const classes= useStyles();
+
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -95,23 +98,11 @@ const CountryVisaDetails = ({countryProps}) => {
 
 export default CountryVisaDetails
 
-export const getStaticPaths= async (id) => {
-  const snapshot= await getDocs(collection(db, 'visaCountries'));
-  const paths= snapshot.docs.map(doc=>{
-    return{
-      params: { id: doc.id.toString()}
-    }
-  })
-  return {
-    paths,
-    fallback: false
-  }
-}
+export const getServerSideProps = async (context) => {
+    const id= context.params.id;
+    const docRef= doc(db,'visaCountries', id);
+    const docSnap= await getDoc(docRef);
 
-export const getStaticProps= async (context) => {
-  const id= context.params.id;
-  const docRef= doc(db,'visaCountries', id);
-  const docSnap= await getDoc(docRef);
   return {
     props: { countryProps: JSON.stringify(docSnap.data()) || null},
   }
