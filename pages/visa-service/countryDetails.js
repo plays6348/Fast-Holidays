@@ -46,7 +46,7 @@ const useStyles= makeStyles(()=>{
   }
 })
 
-const countryDetails = () => {
+const CountryDetails = () => {
 
 const router= useRouter();
 const data= router.query;
@@ -95,4 +95,4 @@ const classes= useStyles();
   )
 }
 
-export default countryDetails
+export default CountryDetails

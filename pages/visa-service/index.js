@@ -50,7 +50,7 @@ const VisaService = () => {
               <div className={visaStyles.airlines}>
                 {countries.map(count=>(
                   <Link key={count.id}
-                   href={{ pathname: '/visa-service/countryDetails', query:{name: count.name, img: count.img}}
+                   href={{ pathname: '/visa-service/CountryDetails', query:{name: count.name, img: count.img}}
                    }>
                     <div className={visaStyles.airlineLogoContainer}>
                       <img
