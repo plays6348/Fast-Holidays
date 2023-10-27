@@ -150,17 +150,6 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   <Typography sx={muiStyles.logoLink}>Airlines</Typography>
                 </div>
               </Link>
-              <Link href="/send-inquiry" passHref>
-                <div
-                  className={
-                    router.pathname.includes('/send-inquiry')
-                      ? styles.highlightedLink
-                      : styles.simpleLink
-                  }
-                >
-                  <Typography sx={muiStyles.logoLink}>Send Inquiry</Typography>
-                </div>
-              </Link>
               <Link href="/visa-service" passHref>
                 <div
                   className={
@@ -170,6 +159,17 @@ export default function Header({ onMenuClick, clicked, onConnectClick }) {
                   }
                 >
                   <Typography sx={muiStyles.logoLink}>Visa Services</Typography>
+                </div>
+              </Link>
+              <Link href="/send-inquiry" passHref>
+                <div
+                  className={
+                    router.pathname.includes('/send-inquiry')
+                      ? styles.highlightedLink
+                      : styles.simpleLink
+                  }
+                >
+                  <Typography sx={muiStyles.logoLink}>Send Inquiry</Typography>
                 </div>
               </Link>
               <div className={styles.simpleLink}>

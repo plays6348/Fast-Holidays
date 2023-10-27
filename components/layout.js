@@ -55,6 +55,7 @@ import SendIcon from '@mui/icons-material/Send';
 import RequestQuoteIcon from '@mui/icons-material/RequestQuote';
 import FlightIcon from '@mui/icons-material/Flight';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
+import PublicIcon from '@mui/icons-material/Public';
 
 const drawerWidth = 280;
 
@@ -236,6 +237,34 @@ export default function Layout({
                 </ListItemIcon>
                 <ListItemText className={styles.listItemText}>
                   Airlines
+                </ListItemText>
+              </ListItem>
+            </Link>
+            <Divider />
+            <Link href="/visa-service" className={styles.link}>
+              <ListItem
+                button={router.pathname == '/visa-service' ? false : true}
+                sx={
+                  router.pathname == '/visa-service'
+                    ? {
+                        backgroundColor: '#cc1817',
+                        cursor: 'pointer',
+                        color: 'white',
+                      }
+                    : { cursor: 'pointer' }
+                }
+              >
+                <ListItemIcon>
+                  <PublicIcon
+                    sx={
+                      router.pathname == '/visa-service'
+                        ? { color: 'white' }
+                        : { color: '#cc1817' }
+                    }
+                  />
+                </ListItemIcon>
+                <ListItemText className={styles.listItemText}>
+                  Visa Service
                 </ListItemText>
               </ListItem>
             </Link>
