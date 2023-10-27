@@ -1,47 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { ThemeProvider, Skeleton, Grid } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { ThemeProvider } from '@mui/material';
 import { theme } from '@/styles/theme';
-import styles from '@/styles/destinations.module.css';
+import visaStyles from '@/styles/components/visa.module.css';
 import Layout from '@/components/layout';
-import Link from 'next/link';
 import {
   collection,
   getDocs,
 } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
-
-const useStyles= makeStyles(()=>{
-  return {
-  gridColor: {
-    padding: '20px',
-    backgroundColor: 'transparent',
-    color: 'black',
-    margin: '6px',
-    fontSize: '20px',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    boxShadow: '0 0 5px 2px #000',
-    border: '1px solid black',
-    cursor: 'pointer',
-    transition: 'transform .2s',
-    '&:hover':{
-      transform: 'scale(1.05)',
-    }
-  },
-  centering:{
-    textAlign: 'center',
-    // maxWidth:'1366px',
-    margin: 'auto',
-    justifyContent: 'center',
-    marginTop: '40px',
-    marginBottom: '40px'
-  },
-  imageWidth:{
-    maxWidth:'200px',
-    height: '120px',
-  }
-}});
+import VisaModal from '@/components/VisaCompCard/VisaModal';
 
 async function fetchDataFromFireBase() {
   const querySnapshot= await getDocs(collection(db, "visaCountries"));
@@ -53,7 +20,7 @@ async function fetchDataFromFireBase() {
 }
 
 const VisaService = () => {
-  const classes= useStyles();
+  const [country, setCountry]= useState();
   const [countries, setCountries]= useState([]);
   useEffect(()=>{
     async function fetchData() {
@@ -62,34 +29,35 @@ const VisaService = () => {
     }
     fetchData();
   },[]);
+
+  const handleNameImg= (obj)=>{
+    setCountry(obj);
+  }
+
+  const [openPopup, setOpenPopup] = useState(false);
   
   return (
     <>
-        <ThemeProvider theme={theme}>
-          <Layout>
-            <div className={styles.bannerImg}>
-              <img
-                src="/assets/banner 2 fastholidays.jpg"
-                alt={`all destinations banner`}
-              />
-            </div>
-            <Grid className={classes.centering}  container spacing={2}>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <div className={visaStyles.airlinesContainer}>
+            <div className={visaStyles.airlines}>
+              
               {countries.map(count=>(
-                <Link key={count.id} href={`/visa-service/${count.id}`} passHref>
-                  <Grid className={classes.gridColor} item xs={4} sm={2} key={count.id}>
+                  <div className={visaStyles.airlineLogoContainer} key={count.id} onClick={()=>{handleNameImg(count), setOpenPopup(true)}} >
                     <img
-                        className={classes.imageWidth}
+                        className={visaStyles.airlineLogo}
                         src={count.img}
                         alt={`all destinations banner`}
                       />
-                      <br/>
-                    {count.name}
-                  </Grid>
-                </Link>
+                      {count.name}
+                  </div>
               ))}
-            </Grid>
-          </Layout>
-        </ThemeProvider>
+               <VisaModal countryName={country?.name} imgTest={country?.img} openPopup={openPopup} setOpenPopup={setOpenPopup}/>
+            </div>
+          </div>
+        </Layout>
+      </ThemeProvider>
     </>
   )
 }
