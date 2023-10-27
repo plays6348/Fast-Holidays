@@ -4,8 +4,6 @@ import { makeStyles } from '@mui/styles';
 import { theme } from '@/styles/theme';
 import styles from '@/styles/destinations.module.css';
 import Layout from '@/components/layout';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
-import { db } from '@/config/firebaseConfig';
 import VisaForm from '@/components/VisaCountryComp/VisaForm';
 import { useRouter } from 'next/router';
 
@@ -48,10 +46,11 @@ const useStyles= makeStyles(()=>{
   }
 })
 
-const CountryVisaDetails = ({countryProps}) => {
+const countryDetails = () => {
 
-  const country= JSON.parse(countryProps)
-  const classes= useStyles();
+const router= useRouter();
+const data= router.query;
+const classes= useStyles();
 
   return (
     <>
@@ -67,10 +66,10 @@ const CountryVisaDetails = ({countryProps}) => {
             <Grid container gap={3} className={classes.gridCenter}>
               <Grid item xs={10} sm={8} md={3} gap={4} className={classes.gridPadMin}>
                 <Grid item md={12} >
-                  <img alt='images' className={classes.imgWidth} src={country.img}/>
+                  <img alt='images' className={classes.imgWidth} src={data.img}/>
                 </Grid>
                 <Grid md={12} >
-                  <h2>{country.name}</h2>
+                  <h2>{data.name}</h2>
                   <p>
                     A Schengen Visa is a Travel Document which can access 26 European Countries. 
                     It Offers Benefits such as seamless Travel, Shorter Processing times, 
@@ -86,7 +85,7 @@ const CountryVisaDetails = ({countryProps}) => {
               </Grid>
               <Grid item xs={10} sm={8} md={6} className={classes.gridPad}>
               <h2 style={{textAlign: 'center', marginTop: '-4px'}}>Inquire Us</h2>
-                <VisaForm countryName={country.name}/>
+                <VisaForm countryName={data.name}/>
               </Grid>
             </Grid>
           </div>
@@ -96,14 +95,4 @@ const CountryVisaDetails = ({countryProps}) => {
   )
 }
 
-export default CountryVisaDetails
-
-export const getServerSideProps = async (context) => {
-    const id= context.params.id;
-    const docRef= doc(db,'visaCountries', id);
-    const docSnap= await getDoc(docRef);
-
-  return {
-    props: { countryProps: JSON.stringify(docSnap.data()) || null},
-  }
-}
+export default countryDetails

@@ -10,6 +10,7 @@ import {
   getDocs,
 } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
+import { useRouter } from 'next/router';
 
 async function fetchDataFromFireBase() {
   const querySnapshot= await getDocs(collection(db, "visaCountries"));
@@ -29,6 +30,8 @@ const VisaService = () => {
     }
     fetchData();
   },[]);
+
+  const router= useRouter();
   
   return (
     <>
@@ -46,7 +49,9 @@ const VisaService = () => {
            <div className={visaStyles.airlinesContainer}>
               <div className={visaStyles.airlines}>
                 {countries.map(count=>(
-                  <Link key={count.id} href={`/visa-service/${count.id}`} passHref>
+                  <Link key={count.id}
+                   href={{ pathname: '/visa-service/countryDetails', query:{name: count.name, img: count.img}}
+                   }>
                     <div className={visaStyles.airlineLogoContainer}>
                       <img
                           className={visaStyles.airlineLogo}
