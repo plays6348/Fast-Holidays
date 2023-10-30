@@ -10,7 +10,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles= makeStyles(()=>{
     return {
         paper: { 
-            minWidth: "800px",
+            minWidth: "900px",
             [theme.breakpoints.down("md")]: {
                 minWidth: "400px"
               },
@@ -40,6 +40,22 @@ const useStyles= makeStyles(()=>{
             fontSize: "20px",
             cursor: "pointer",
           },
+          headerWidth: {
+            maxWidth: '800px',
+            display: 'flex', 
+            flexDirection: 'row', 
+            justifyContent: "space-between",
+            marginBottom: '1rem',
+            [theme.breakpoints.down("sm")]: {
+                margin: 'auto',
+                alignItems: 'center',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              },
+          },
+          headerImage:{
+            width: '150px',
+          }
     }
 })
 
@@ -98,6 +114,17 @@ const VisaModal = (props) => {
           </div>
         </DialogTitle>
         <DialogContent>
+            <div className={classes.headerWidth}>
+                <img src={imgTest} className={classes.headerImage}/>
+                <p style={{
+                    marginLeft: '1rem',
+                    fontWeight: 'bolder'
+                }}>
+                    A Schengen Visa is a Travel Document which can access 26 European Countries. 
+                    It Offers Benefits such as seamless Travel, Shorter Processing times, 
+                    cost-effective, extended stays, and Versatility for tourism. 
+                </p>
+            </div>
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Stack spacing={2}>
                 <div className={classes.divMargin}>
@@ -173,6 +200,25 @@ const VisaModal = (props) => {
                 <TextField label="What is the best time to call you?" type='text' {...register('callTime',{
                             required: 'Time to call you is required'
                         })}/>
+
+                <TextField
+                    defaultValue={countryName}
+                    disabled
+                    label="Selected Country"
+                    variant="outlined"
+                    sx={{
+                        ".MuiOutlinedInput-root": {
+                        flexDirection: "row",
+                        },
+                        img: {
+                        width: '30px',
+                        marginRight: '10px'
+                        }
+                    }}
+                    InputProps={{
+                        startAdornment: <img src={imgTest}/>
+                    }}
+                />
 
                 <InputLabel id="response-preferred-by">Response Preferred By</InputLabel>
                 <Select
