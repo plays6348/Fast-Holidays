@@ -114,7 +114,7 @@ const VisaModal = (props) => {
           </div>
         </DialogTitle>
         <DialogContent>
-        <div className={classes.headerWidth}>
+            <div className={classes.headerWidth}>
                 <img src={imgTest} className={classes.headerImage}/>
                 <p style={{
                     marginLeft: '1rem',
@@ -200,7 +200,8 @@ const VisaModal = (props) => {
                 <TextField label="What is the best time to call you?" type='text' {...register('callTime',{
                             required: 'Time to call you is required'
                         })}/>
-                        <TextField
+
+                <TextField
                     defaultValue={countryName}
                     disabled
                     label="Selected Country"
