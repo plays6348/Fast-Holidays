@@ -34,7 +34,7 @@ function DialogComponent() {
       setTimeout(() => {
         setShowDialog(true);
         localStorage.setItem('showCount', 1);
-      }, 10000);
+      }, 1000);
     }
   }, []);
 

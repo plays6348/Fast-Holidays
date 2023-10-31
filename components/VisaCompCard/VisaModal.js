@@ -269,7 +269,7 @@ const VisaModal = (props) => {
                 <Button onClick={()=> reset({
                     inquiryLocation: countryName
                 })} type='submit' variant='contained' color='primary'>
-                    Send Email
+                    Apply Now
                 </Button>
                 
             </Stack>
