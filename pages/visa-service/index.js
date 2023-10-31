@@ -59,6 +59,7 @@ const VisaService = () => {
                         src={count.img}
                         alt={`all destinations banner`}
                       />
+                      <span className={visaStyles.applyNowButton}>Apply Now</span>
                       {count.name}
                   </div>
               ))}
