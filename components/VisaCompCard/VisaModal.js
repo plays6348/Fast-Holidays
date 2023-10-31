@@ -1,6 +1,6 @@
 
 import { Dialog, DialogContent, DialogTitle, Button, InputLabel, MenuItem, Select, Stack, TextField  } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 import { theme } from '@/styles/theme';
@@ -10,12 +10,13 @@ import { makeStyles } from '@mui/styles';
 const useStyles= makeStyles(()=>{
     return {
         paper: { 
-            minWidth: "800px",
+            minWidth: "900px",
             [theme.breakpoints.down("md")]: {
                 minWidth: "400px"
               },
               [theme.breakpoints.down("sm")]: {
-                minWidth: "300px"
+                minWidth: "300px",
+                textAlign: 'center'
               },
 
          },
@@ -105,7 +106,7 @@ const VisaModal = (props) => {
     <Dialog open={openPopup} classes={{ paper: classes.paper}}>
         <DialogTitle>
             <div className={classes.flexing}>
-                <div>Apply Your Schengen Visa</div>
+                <div style={{textAlign: "center", margin: 'auto'}}>Apply Your Schengen Visa Now</div>
                 <div>
                     <button className={classes.buttonStyle} onClick={()=>setOpenPopup(false)}>
                         X
@@ -132,7 +133,8 @@ const VisaModal = (props) => {
                     sx={{
                         width:'45%',
                         [theme.breakpoints.down("md")]: {
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '16px'
                           },
                     }}
                         {...register('fullName',{
@@ -156,7 +158,8 @@ const VisaModal = (props) => {
                     sx={{
                         width:'45%',
                         [theme.breakpoints.down("md")]: {
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '16px'
                           },
                     }}
                         {...register('email',{
@@ -179,7 +182,8 @@ const VisaModal = (props) => {
                     sx={{
                         width:'45%',
                         [theme.breakpoints.down("md")]: {
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '16px'
                           },
                     }}
                     type='text' {...register('city',{
@@ -265,7 +269,7 @@ const VisaModal = (props) => {
                 <Button onClick={()=> reset({
                     inquiryLocation: countryName
                 })} type='submit' variant='contained' color='primary'>
-                    Apply Now
+                    Send Email
                 </Button>
                 
             </Stack>
