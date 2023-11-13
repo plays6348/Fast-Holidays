@@ -25,9 +25,6 @@ export default function FareCard({ data, index }) {
     return convertString(_name.join('-'));
   };
 
-  // console.log(data);
-  // console.log(index);
-
   return (
     <ThemeProvider theme={theme}>
       <div className={styles.fareCard}>

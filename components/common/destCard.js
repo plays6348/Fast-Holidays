@@ -11,8 +11,6 @@ export default function DestCard({ dest }) {
     },
   };
 
-  // console.log(dest.img);
-
   return (
     <>
       {dest && (

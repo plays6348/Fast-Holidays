@@ -1,12 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 
 const Checkbox = ({handleClick,label, newChecked}) => {
-
-    // const handleCheck  = useCallback(() => {
-    //     isChecked.current = !isChecked.current;
-    //     console.log(isChecked.current.checked)
-    //   })
-
     return (
         <div>
             <input

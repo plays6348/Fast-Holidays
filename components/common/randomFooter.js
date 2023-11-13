@@ -11,7 +11,6 @@ function RandomFooter() {
 
   const getFooterData = async () => {
     const index = Math.floor(Math.random() * 13) + 1;
-    console.log(index);
   
       const arrOfData = [];
       if(index) {
@@ -25,13 +24,11 @@ function RandomFooter() {
         });
     
         setFooterData(arrOfData[0]);
-        console.log(arrOfData[0]);
       }
     };
   
     const getAirline = async () => {
       const index = Math.floor(Math.random() * 33) + 1;
-      console.log(index);
     
         const arrOfData = [];
         if(index) {
@@ -45,7 +42,6 @@ function RandomFooter() {
           });
       
           setAirline(arrOfData[0]);
-          console.log(arrOfData[0]);
         }
       };
 

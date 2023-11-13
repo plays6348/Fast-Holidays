@@ -23,8 +23,6 @@ export default function GetDocss() {
     for (let i = 0; i < data.length; i++) {}
   };
 
-  console.log(data);
-
   return (
     <div>
       <Button onClick={() => getData()}>Get Data</Button>

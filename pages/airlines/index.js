@@ -73,8 +73,6 @@ export default function Airlines() {
     }
   };
 
-  console.log(airlines);
-
   useEffect(() => {
     getAllAirlines();
   }, []);

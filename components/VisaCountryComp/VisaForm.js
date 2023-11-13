@@ -18,7 +18,7 @@ const useStyles= makeStyles(()=>{
     }
 })
 
-const VisaForm = ({countryName}) => {
+const VisaForm = ({countryName,countryImg}) => {
     const classes= useStyles();
     const router = useRouter();
     const form= useForm({
@@ -33,11 +33,11 @@ const VisaForm = ({countryName}) => {
             statusUK:'',
             callTime:'',
             responsePref:'',
-            countryName: countryName
+            inquiryLocation: countryName
         }
     });
 
-    const {register, handleSubmit}= form;
+    const {register, handleSubmit, reset}= form;
 
     const onSubmit= (data)=>{
         if (data) {
@@ -59,14 +59,15 @@ const VisaForm = ({countryName}) => {
     }
   return (
     <>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+         <form onSubmit={handleSubmit(onSubmit)} noValidate>
             <Stack spacing={2}>
                 <div className={classes.divMargin}>
                     <TextField label="Full name" type='text' 
                     sx={{
                         width:'45%',
                         [theme.breakpoints.down("md")]: {
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '16px'
                           },
                     }}
                         {...register('fullName',{
@@ -90,7 +91,8 @@ const VisaForm = ({countryName}) => {
                     sx={{
                         width:'45%',
                         [theme.breakpoints.down("md")]: {
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '16px'
                           },
                     }}
                         {...register('email',{
@@ -104,17 +106,22 @@ const VisaForm = ({countryName}) => {
                             width: '100%'
                           },
                     }}
-                    type='text' {...register('nationality')}/>
+                    type='text' {...register('nationality',{
+                        required: 'Nationality is required'
+                    })}/>
                 </div>
                 <div className={classes.divMargin}>
                     <TextField label="City" 
                     sx={{
                         width:'45%',
                         [theme.breakpoints.down("md")]: {
-                            width: '100%'
+                            width: '100%',
+                            marginBottom: '16px'
                           },
                     }}
-                    type='text' {...register('city')}/>
+                    type='text' {...register('city',{
+                        required: 'City Name is required'
+                    })}/>
                     <TextField label="Main Purpose(s) of the journey" 
                     sx={{
                         width:'45%',
@@ -122,14 +129,39 @@ const VisaForm = ({countryName}) => {
                             width: '100%'
                           },
                     }}
-                    type='text' {...register('mainPurpose')}/>
+                    type='text' {...register('mainPurpose',{
+                        required: 'Main Purpose is required'
+                    })}/>
                 </div>
 
-                <TextField label="What is the best time to call you?" type='text' {...register('callTime')}/>
+                <TextField label="What is the best time to call you?" type='text' {...register('callTime',{
+                            required: 'Time to call you is required'
+                        })}/>
+
+                <TextField
+                    defaultValue={countryName}
+                    disabled
+                    label="Selected Country"
+                    variant="outlined"
+                    sx={{
+                        ".MuiOutlinedInput-root": {
+                        flexDirection: "row",
+                        },
+                        img: {
+                        width: '30px',
+                        marginRight: '10px'
+                        }
+                    }}
+                    InputProps={{
+                        startAdornment: <img src={countryImg}/>
+                    }}
+                />
 
                 <InputLabel id="response-preferred-by">Response Preferred By</InputLabel>
                 <Select
-                    {...register("responsePref")}
+                    {...register("responsePref",{
+                        required: 'Response By is required'
+                    })}
                     labelId="response-preferred-by"
                     id="simple-response-pref"
                     label="Response Prefer"
@@ -140,7 +172,9 @@ const VisaForm = ({countryName}) => {
 
                 <InputLabel id="status-select">Status in UK</InputLabel>
                 <Select
-                    {...register("statusUK")}
+                    {...register("statusUK",{
+                        required: 'UK status is required'
+                    })}
                     labelId="status-select"
                     id="simple-status-select"
                     label="Select Visa"
@@ -154,7 +188,9 @@ const VisaForm = ({countryName}) => {
 
                 <InputLabel id="visa-issue">Schengen Visas issued during the past three years</InputLabel>
                 <Select
-                    {...register("visaIssue")}
+                    {...register("visaIssue",{
+                        required: 'Schengen Visa Issue is required'
+                    })}
                     labelId="visa-issue"
                     id="simple-visa-issue"
                     label="Schengen Visa"
@@ -163,7 +199,9 @@ const VisaForm = ({countryName}) => {
                     <MenuItem value={'schengen-no'}>No</MenuItem>
                 </Select>
 
-                <Button type='submit' variant='contained' color='primary'>
+                <Button onClick={()=> reset({
+                    inquiryLocation: countryName
+                })} type='submit' variant='contained' color='primary'>
                     Send Email
                 </Button>
                 

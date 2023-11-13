@@ -1,6 +1,6 @@
 /* airlines */
 .banner {
-  /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
+/* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
   background-image: url("../../public/assets/banner\ home\ fastholidays.jpg");
   height: 100vh;
   padding-top: 5rem;
@@ -9,20 +9,75 @@
   background-size: cover;
   background-attachment: fixed;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-
+  align-items: center;
+  margin: 3rem 0;
 }
 
-.banner__text {
-  display: flex;
-  /* opacity: 0.7; */
-  justify-content: space-between;
-  align-items: center;
-  max-width: 786px;
-  gap: 2rem;
-  padding: 1rem;
+.airlines {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1024px;
+}
+.visaheading{
+  text-align: center;
+  margin: 50px 0;
+}
+
+.airlineLogoContainer {
+  position: relative;
+}
+
+.applyNowButton {
+  position: absolute;
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  background-color: #cc1817; 
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0; 
+  transition: opacity 0.3s;
+}
+
+.airlineLogoContainer:hover .applyNowButton {
+  opacity: 1;
+}
+
+@media screen and (max-width: 950px) {
+  .airlines {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .airlines {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .applyNowButton{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    opacity: 1;
+    padding: 7px 7px;
+    font-size: 12px;
+  }
+  .visaheading{
+    margin: 20px 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .airlines {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .airlineLogoContainer {
@@ -46,66 +101,3 @@
   width: 100%;
   height: 80px;
 }
-
-.airlinesContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5rem 0;
-  }
- .createVest {
-    background-color: #27debf;
-    border: "none";
-    color: "black";
-    font-weight: "bold";
-    padding: "15px 32px";
-    text-align: "center";
-    display: "inline-block";
-    font-size: "16px";
-    text-transform: "uppercase";
-    margin: "4px 2px";
-    cursor: "pointer";
-  }
-.airlines {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-  }
-  
-  @media screen and (max-width: 1100px) {
-    .banner {
-      padding: 3rem 0 2rem 0;
-    }
-  
-    .banner {
-      /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); */
-      background-image: url("../../public/assets/banner\ home\ fastholidays.jpg");
-      height: 120vh;
-    }
-  }
-
-  @media screen and (max-width: 950px) {
-    .airlines {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  @media screen and (max-width: 786px) {
-    .banner__text{
-      display: none;
-    }
-    .banner{
-      padding-top: 6rem;
-    }
-    .airlines {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  @media screen and (max-width: 580px) {
-    .airlines {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }

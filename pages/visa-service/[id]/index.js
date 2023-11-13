@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 import { theme } from '@/styles/theme';
 import styles from '@/styles/destinations.module.css';
 import Layout from '@/components/layout';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, where, query } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
 import VisaForm from '@/components/VisaCountryComp/VisaForm';
 import { useRouter } from 'next/router';
@@ -45,25 +45,29 @@ const useStyles= makeStyles(()=>{
   }
 })
 
-const CountryVisaDetails = ({countryProps}) => {
-  console.log(countryProps)
+const CountryVisaDetails = () => {
 
-  // const [country, setCountry]= useState()
-  // const router= useRouter();
-  // const countryID= router.query.id;
+  const router= useRouter();
+  const {id}= router.query
 
-  // const getSingleVisaCountry= async ()=>{
-  //   const docRef= doc(db,'visaCountries', countryID);
-  //   const docSnap= await getDoc(docRef);
-  //   const singleCountry= JSON.stringify(docSnap.data());
-  //   setCountry(JSON.parse(singleCountry));
-  // };
+  const [blockApi, setBlockApi]= useState(false);
+  const [fetching, setFetching] = useState();
+  
+  const getData= async()=>{
+    if (!blockApi) {
+      setFetching(true);
+      const countryID= id;
+      const docRef= doc(db,'visaCountries', countryID);
+      const docSnap= await getDoc(docRef);
+      const countryDetails= JSON.stringify(docSnap.data());
+      setFetching(false)
+    }
+  }
+  useEffect(()=>{
+    getData()
+  },[])
 
-  // useEffect(()=>{
-  //   getSingleVisaCountry()
-  // },[])
-
-  const country= JSON.parse(countryProps)
+  // const country= JSON.parse(countryProps)
   const classes= useStyles();
 
   return (
@@ -92,27 +96,28 @@ const CountryVisaDetails = ({countryProps}) => {
                 borderRadius: '12px'
               }}>
                 <Grid item xs={12} sm={10} md={8} >
-                  <img style={{
+                  {/* <img style={{
                     width: '430px',
                     height: '200px',
                     [theme.breakpoints.down("md")]: {
                       width: '270px',
                       justifyContent: "center",
                     },
-                  }} src={country.img}/>
+                  }} src={country.img}/> */}
                 </Grid>
                 <Grid item xs={12} sm={10} md={8} >
-                  <h2>{country.name}</h2>
+                  {/* <h2>{country.name}</h2> */}
                   <p className={classes.imgWidth}> 
                     A Schengen Visa is a Travel Document which can access 26 European Countries. 
                     It Offers Benefits such as seamless Travel, Shorter Processing times, 
-                    cost-effective, extended stays, and Versatility for tourism. To obtain the Schengen Visa, 
+                    cost-effective, extended stays, and Versatility for tourism. 
+                    {/* not popup: [To obtain the Schengen Visa, 
                     you need to select your main destination, Complete the 
                     Application process, Deposit the fee, Wait for the Processing of 
                     your Schengen Visa, and upon your Arrival, your Schengen visa will be attached 
                     to your Passport. The Requirement for your Schengen visa documents varies from 
                     destination to destination. Schengen visa will open your doors to all the 26 Countries 
-                    in Europe with Ease and Comfort.
+                    in Europe with Ease and Comfort.] */}
                   </p>
                 </Grid>
               </Grid>
@@ -134,33 +139,12 @@ const CountryVisaDetails = ({countryProps}) => {
 
 export default CountryVisaDetails
 
-// export const getStaticPaths= async (id) => {
-//   const snapshot= await getDocs(collection(db, 'visaCountries'));
-//   const paths= snapshot.docs.map(doc=>{
-//     return{
-//       params: { id: doc.id.toString()}
-//     }
-//   })
-//   return {
-//     paths,
-//     fallback: false
-//   }
-// }
+// export const getServerSideProps = async (context) => {
+    // const id= context.params.id;
+    // const docRef= doc(db,'visaCountries', id);
+    // const docSnap= await getDoc(docRef);
 
-// export const getStaticProps= async (context) => {
-//   const id= context.params.id;
-//   const docRef= doc(db,'visaCountries', id);
-//   const docSnap= await getDoc(docRef);
 //   return {
 //     props: { countryProps: JSON.stringify(docSnap.data()) || null},
 //   }
 // }
-export const getServerSideProps = async (context) => {
-    const id= context.params.id;
-    const docRef= doc(db,'visaCountries', id);
-    const docSnap= await getDoc(docRef);
-
-  return {
-    props: { countryProps: JSON.stringify(docSnap.data()) || null},
-  }
-}

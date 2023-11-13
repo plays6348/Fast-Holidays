@@ -47,11 +47,9 @@ export default function Destinations() {
           setBlockApi(true);
         }
         setDestinations(arrOfData);
-        console.log('if');
       } else if (destinations.length > 0) {
         const arrOfData = [];
         let lastVisible = destinations[destinations.length - 1];
-        console.log('last', lastVisible);
         const q = query(
           collection(db, 'destinations'),
           orderBy('name', 'desc'),
