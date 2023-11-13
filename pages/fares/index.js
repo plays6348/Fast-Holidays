@@ -35,7 +35,6 @@ export default function Fares() {
   const [fetching, setFetching] = useState();
   const [blockApi, setBlockApi] = useState(false);
 
-  console.log(airlineCode)
 
   const getData = async () => {
     if (!blockApi) {
@@ -58,7 +57,6 @@ export default function Fares() {
               arrOfData.push({ ...doc.data(), _id: doc.id });
             });
             setFares(arrOfData);
-            console.log("search by both");
             if (arrOfData.length === 0) {
               setIsEmpty(true);
             }
@@ -82,7 +80,6 @@ export default function Fares() {
               arrOfData.push({ ...doc.data(), _id: doc.id });
             });
             setFares(arrOfData);
-            console.log("search by dept");
             if (arrOfData.length === 0) {
               setIsEmpty(true);
             }
@@ -106,7 +103,6 @@ export default function Fares() {
               arrOfData.push({ ...doc.data(), _id: doc.id });
             });
             setFares(arrOfData);
-            console.log("search by dest");
             if (arrOfData.length === 0) {
               setIsEmpty(true);
             }
@@ -132,7 +128,6 @@ export default function Fares() {
               arrOfData.push({ ...doc.data(), _id: doc.id });
             });
             setFares(arrOfData);
-            console.log("search by both");
             if (arrOfData.length === 0) {
               setIsEmpty(true);
             }
@@ -155,7 +150,6 @@ export default function Fares() {
               arrOfData.push({ ...doc.data(), _id: doc.id });
             });
             setFares(arrOfData);
-            console.log("search by dept");
             if (arrOfData.length === 0) {
               setIsEmpty(true);
             }
@@ -178,7 +172,6 @@ export default function Fares() {
               arrOfData.push({ ...doc.data(), _id: doc.id });
             });
             setFares(arrOfData);
-            console.log("search by dest");
             if (arrOfData.length === 0) {
               setIsEmpty(true);
             }
@@ -206,7 +199,6 @@ export default function Fares() {
             arrOfData.push({ ...doc.data(), _id: doc.id });
           });
           setFares([...fares, ...arrOfData]);
-          console.log("search by both");
           if (arrOfData.length === 0) {
             setIsEmpty(true);
           }
@@ -230,7 +222,6 @@ export default function Fares() {
             arrOfData.push({ ...doc.data(), _id: doc.id });
           });
           setFares([...fares, ...arrOfData]);
-          console.log("search by dept");
           if (arrOfData.length === 0) {
             setIsEmpty(true);
           }
@@ -253,7 +244,6 @@ export default function Fares() {
             arrOfData.push({ ...doc.data(), _id: doc.id });
           });
           setFares([...fares, ...arrOfData]);
-          console.log("search by dest");
           if (arrOfData.length === 0) {
             setIsEmpty(true);
           }
@@ -269,7 +259,6 @@ export default function Fares() {
 
   const getFooterData = async () => {
     const index = Math.floor(Math.random() * 13) + 1;
-    console.log(index);
 
     const arrOfData = [];
     if (index) {
@@ -283,13 +272,11 @@ export default function Fares() {
       });
 
       setFooterData(arrOfData[0]);
-      console.log(arrOfData[0]);
     }
   };
 
   const getAirline = async () => {
     const index = Math.floor(Math.random() * 33) + 1;
-    console.log(index);
 
     const arrOfData = [];
     if (index) {
@@ -303,7 +290,6 @@ export default function Fares() {
       });
 
       setAirline(arrOfData[0]);
-      console.log(arrOfData[0]);
     }
   };
 
@@ -321,8 +307,6 @@ export default function Fares() {
       getData();
     }
   }, [skip]);
-
-  console.log(fares);
 
   return (
     <Layout title={"Destinations"}>

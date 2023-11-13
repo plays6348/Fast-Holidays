@@ -53,11 +53,9 @@ export default function Fares() {
           setBlockApi(true);
         }
         setFares(arrOfData);
-        console.log('if');
       } else if (fares.length > 0) {
         const arrOfData = [];
         let lastVisible = fares[fares.length - 1];
-        console.log('last', lastVisible);
         const q = query(
           collection(db, 'fares'),
           startAfter(lastDocu),
@@ -81,7 +79,6 @@ export default function Fares() {
 
   const getFooterData = async () => {
     const index = Math.floor(Math.random() * 13) + 1;
-    console.log(index);
 
     const arrOfData = [];
     if (index) {
@@ -95,13 +92,11 @@ export default function Fares() {
       });
 
       setFooterData(arrOfData[0]);
-      console.log(arrOfData[0]);
     }
   };
 
   const getAirline = async () => {
     const index = Math.floor(Math.random() * 33) + 1;
-    console.log(index);
 
     const arrOfData = [];
     if (index) {
@@ -115,7 +110,6 @@ export default function Fares() {
       });
 
       setAirline(arrOfData[0]);
-      console.log(arrOfData[0]);
     }
   };
 

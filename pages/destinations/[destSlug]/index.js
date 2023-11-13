@@ -82,7 +82,6 @@ export default function SingleDestination() {
 
   const getFooterData = async () => {
     const index = Math.floor(Math.random() * 13) + 1;
-    console.log(index);
 
     const arrOfData = [];
     if (index) {

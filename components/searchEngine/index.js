@@ -65,7 +65,6 @@ export default function Searchbar() {
 
   // console.log("selectedDept", selectedDept);
   // console.log("selectedDest", selectedDest);
-  console.log(airline)
 
   const [details, setDetails] = useState({
     name: '',
@@ -92,7 +91,6 @@ export default function Searchbar() {
     } else if (type == 'dest') {
       setSelectedDest(value);
     } else if (type == 'phone') {
-      console.log(value);
       setDetails({ ...details, phone: value });
     }
   };
@@ -198,7 +196,6 @@ export default function Searchbar() {
           'tL_Vpyj5WxQRqs6ec',
         )
         .then((res) => {
-          console.log(res);
           setShowDialog({
             title: 'Successfull',
             msg: 'Inquiry sent successfully, We will call you for further processing.',
@@ -217,7 +214,6 @@ export default function Searchbar() {
           Router.push(route);
         })
         .catch((err) => {
-          console.log(err);
           // setShowDialog({
           //   title: 'Something went wrong',
           //   msg: 'Inquiry not sent.',

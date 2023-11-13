@@ -226,9 +226,6 @@ export default function SingleAirline({ window }) {
     }
   };
 
-  console.log(filters);
-  console.log(fares);
-
   const drawer = (
     <div>
       <div className={styles.drawer}>

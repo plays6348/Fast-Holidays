@@ -95,12 +95,10 @@ const FilterSidebar = ({ getDepartureFilterData, getDestinationFilterData }) => 
     }
 
     setCheckBox([...codeArray])
-    console.log(codeArray, '====d====')
     getDestinationFilterData(codeArray)
     // Your checkbox click handler logic goes here
 
   };
-  console.log(checkBox, '======checkbox')
 
   return (
 

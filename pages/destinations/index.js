@@ -2,106 +2,44 @@ import React, { useState, useEffect } from 'react';
 import styles from '@/styles/destinations.module.css';
 import Layout from '@/components/layout';
 import DestCard from '@/components/common/destCard';
-import {
-  collection,
-  query,
-  getDocs,
-  doc,
-  limit,
-  orderBy,
-  startAfter,
-} from 'firebase/firestore';
-import { db } from '@/config/firebaseConfig';
 import { ThemeProvider, Skeleton } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { theme } from '@/styles/theme';
 import RandomFooter from '@/components/common/randomFooter';
 import Searchbar from '@/components/searchEngine';
-import { seoForDestinations } from 'utils/seo';
 import Typography from '@mui/material/Typography';
 import { appName } from 'utils/constants';
 
-export default function Destinations() {
-  const [destinations, setDestinations] = useState([]);
-  const [skip, setSkip] = useState(5);
-  let [lastDocu, setLastDocu] = useState();
-  const [fetching, setFetching] = useState();
-  const [blockApi, setBlockApi] = useState(false);
+export default function TestingDestinations() {
 
-  const getAllDestinations = async () => {
-    if (!blockApi) {
-      setFetching(true);
-      if (destinations.length == 0) {
-        const arrOfData = [];
-        const q = query(
-          collection(db, 'destinations'),
-          orderBy('name', 'desc'),
-          limit(9),
-        );
-        const querySnapshot = await getDocs(q);
-        setLastDocu(querySnapshot.docs[querySnapshot.docs.length - 1]);
-        querySnapshot.forEach((doc) => {
-          arrOfData.push({ ...doc.data(), _id: doc.id });
-        });
-        if (arrOfData.length < 9) {
-          setBlockApi(true);
-        }
-        setDestinations(arrOfData);
-        console.log('if');
-      } else if (destinations.length > 0) {
-        const arrOfData = [];
-        let lastVisible = destinations[destinations.length - 1];
-        console.log('last', lastVisible);
-        const q = query(
-          collection(db, 'destinations'),
-          orderBy('name', 'desc'),
-          startAfter(lastDocu),
-          limit(9),
-        );
-        const querySnapshot = await getDocs(q);
-        setLastDocu(querySnapshot.docs[querySnapshot.docs.length - 1]);
-        querySnapshot.forEach((doc) => {
-          arrOfData.push({ ...doc.data(), _id: doc.id });
-        });
-        setDestinations([...destinations, ...arrOfData]);
-        // console.log(arrOfData);
-        // console.log("else");
-        if (arrOfData.length < 9) {
-          setBlockApi(true);
-        }
-      }
-      setFetching(false);
+  const [countries, setCountries]= useState([]);
+
+    const getData= ()=>{
+       fetch('destinations.json',{headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }}).then((res)=>{
+            return res.json()
+        }).then((count)=>{
+            setCountries(count)
+        })
     }
-  };
 
-  useEffect(() => {
-    getAllDestinations();
-  }, []);
+    useEffect(()=>{
+        getData();
+    },[])
+    
+    const dataPerRow= 9;
+    const [next,setNext]= useState(dataPerRow)
 
-  useEffect(() => {
-    getAllDestinations();
-  }, [skip]);
+    const handleMoreCountries = () => {
+      setNext(next + dataPerRow);
+    };
 
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Layout
-          title={seoForDestinations.title}
-          keywords={seoForDestinations.keywords}
-          description={seoForDestinations.description}
-          canonical={seoForDestinations.canonical}
-          ogLocale={seoForDestinations.ogLocale}
-          ogType={seoForDestinations.ogType}
-          ogTitle={seoForDestinations.ogTitle}
-          ogDescription={seoForDestinations.ogDescription}
-          ogUrl={seoForDestinations.ogUrl}
-          ogSiteName={seoForDestinations.ogSite_name}
-          twitterCard={seoForDestinations.twitterCard}
-          twitterLabel1={seoForDestinations.twitterLabel1}
-          twitterDescription={seoForDestinations.twitterDescription}
-          twitterSite={seoForDestinations.twitterSite}
-          twitterCreator={seoForDestinations.twitterCreator}
-        >
+        <Layout>
           <div className={styles.bannerImg}>
             <img
               src="/assets/banner 2 fastholidays.jpg"
@@ -137,31 +75,26 @@ export default function Destinations() {
               <h1>Destinations</h1>
             </div>
             <div className={styles.destinations}>
-              {destinations.length > 0 ? (
-                <>
-                  {destinations.map((destination, i) => (
+              {countries?.slice(0, next)?.map((data, i) => {
+                return (
                     <div key={i} className={styles.destPage__destinations}>
-                      <DestCard dest={destination} />
+                      <DestCard dest={data} />
                     </div>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-                    <div key={item}>
-                      <div className={styles.destSkeleton}>
-                        <Skeleton
-                          variant="rectangular"
-                          width={260}
-                          height={280}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </>
-              )}
+                );
+              })}
+               
             </div>
-            {destinations && (
+            {next < countries?.length && (
+              <LoadingButton
+                className="mt-4"
+                sx={{ margin: '2rem' }}
+                onClick={handleMoreCountries}
+                variant="contained"
+              >
+                Load more
+              </LoadingButton>
+            )}
+            {/* {destinations && (
               <LoadingButton
                 sx={{ margin: '2rem' }}
                 loading={fetching}
@@ -171,7 +104,7 @@ export default function Destinations() {
               >
                 {!blockApi ? 'Load More' : 'No More'}
               </LoadingButton>
-            )}
+            )} */}
           </div>
           <RandomFooter />
         </Layout>

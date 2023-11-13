@@ -3,30 +3,20 @@ import Link from 'next/link';
 import styles from '@/styles/home.module.css';
 import Layout from '@/components/layout';
 import DestCard from '@/components/common/destCard';
-import { data } from '../utils/searchJson';
-
 import {
-  TextField,
   Button,
   ThemeProvider,
   Typography,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  Autocomplete,
   Skeleton,
 } from '@mui/material';
 import { theme } from '../styles/theme';
 import AirlineCard from '@/components/common/airlineCard';
-import { convertString } from '../utils/helpers';
 import FareCard from '@/components/common/fareCard';
 import {
   collection,
   query,
   getDocs,
   limit,
-  orderBy,
   where,
 } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
@@ -46,28 +36,24 @@ const MenuProps = {
 };
 
 export default function Home() {
-  // const [data, setData] = useState([]);
-  const [dests, setDests] = useState(null);
-  const [topAirlines, setTopAirlines] = useState(null);
+  const [airlines, setAirlines]=useState([]);
   const [type, setType] = useState('business');
   const [selectedDept, setSelectedDept] = useState(' ');
   const [selectedDest, setSelectedDest] = useState(' ');
   const [route, setRoute] = useState();
   const [topFares, setTopFares] = useState(null);
+  const [destinations, setDestinations]= useState([]);
 
-  const getDests = async () => {
-    const arrOfData = [];
-    const q = query(
-      collection(db, 'destinations'),
-      orderBy('name', 'desc'),
-      limit(6),
-    );
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      arrOfData.push({ ...doc.data(), _id: doc.id });
-    });
-    setDests(arrOfData);
-  };
+  const getDestinationsData= ()=>{
+    fetch('destinations.json',{headers:{
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+     }}).then((res)=>{
+         return res.json()
+     }).then((count)=>{
+      setDestinations(count)
+     })
+ }
 
   const getFaresFromUK = async () => {
     const arrOfData = [];
@@ -81,20 +67,19 @@ export default function Home() {
     querySnapshot.forEach((doc) => {
       arrOfData.push({ ...doc.data(), _id: doc.id });
     });
-    // console.log(arrOfData);
     setTopFares(arrOfData);
   };
 
-  const getTopAirlines = async () => {
-    const arrOfData = [];
-    const q = query(collection(db, 'airlines'), limit(15));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      arrOfData.push({ ...doc.data(), _id: doc.id });
-    });
-    // console.log(arrOfData);
-    setTopAirlines(arrOfData);
-  };
+  const getAirlinesData= ()=>{
+    fetch('airlines.json',{headers:{
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+     }}).then((res)=>{
+         return res.json()
+     }).then((count)=>{
+       setAirlines(count)
+     })
+ }
 
   const handleChange = (type, value) => {
     if (type == 'dep') {
@@ -132,30 +117,17 @@ export default function Home() {
 
       setRoute(`/fares?dept=all&dest=${destCode}`);
     }
-
-    // console.log(deptCode);
-    // console.log(destCode);
   }
-
-  const handleSearch = () => {
-    setTopAirlines(true);
-  };
 
   useEffect(() => {
     generateLink(selectedDept, selectedDest);
   }, [selectedDest, selectedDept]);
 
   useEffect(() => {
-    getDests();
-    getTopAirlines();
+    getDestinationsData();
+    getAirlinesData();
     getFaresFromUK();
   }, []);
-
-  // console.log(data);
-  // console.log(destinations);
-  // console.log(selectedDest, selectedDept);
-  // console.log(route);
-  // flight, hotel, hotel+flight
 
   return (
     <ThemeProvider theme={theme}>
@@ -188,29 +160,15 @@ export default function Home() {
             <h1>Top Destinations</h1>
           </div>
           <div className={styles.popular_dests}>
-            {dests ? (
-              <>
-                {dests.map((dest, i) => (
-                  <div key={i}>
-                    <DestCard dest={dest} />
-                  </div>
-                ))}
-              </>
-            ) : (
-              <div className={styles.skeletonSlider}>
-                {[1, 2, 3, 4, 5, 6].map((item) => (
-                  <div key={item}>
-                    <div className={styles.destSkeleton}>
-                      <Skeleton
-                        variant="rectangular"
-                        width={260}
-                        height={280}
-                      />
+
+              {destinations.slice(0, 6).map((data, i) => {
+                return (
+                    <div key={i} className={styles.destPage__destinations}>
+                      <DestCard dest={data} />
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
+                );
+              })}
+
           </div>
           <div className={styles.destMore}>
             <Link href="/destinations">
@@ -258,25 +216,15 @@ export default function Home() {
             <h1>Top Airlines</h1>
           </div>
           <div className={styles.topAirlines}>
-            {topAirlines ? (
-              <>
-                {topAirlines.map((airline, i) => (
-                  <div className={styles.airlineCardContainer} key={i}>
-                    <AirlineCard data={airline} />
-                  </div>
-                ))}
-              </>
-            ) : (
-              <>
-                {Array(15)
-                  .fill(true)
-                  .map((item, i) => (
-                    <div className={styles.airlineSkeleton} key={i}>
-                      <Skeleton variant="rectangular" width={150} height={80} />
-                    </div>
-                  ))}
-              </>
-            )}
+
+              {airlines.slice(0, 15).map((data, i) => {
+                return (
+                  <div key={i} className={styles.airlineCardContainer}>
+                    <AirlineCard data={data} />
+                </div>
+                );
+              })}
+
           </div>
           <div className={styles.destMore}>
             <Link href="/airlines">
