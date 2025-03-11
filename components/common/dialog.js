@@ -52,9 +52,9 @@ function DialogComponent() {
         </div>
         <div className={styles.content}>
           {/* <Avatar sx={muiStyles.avatar} src="/assets/support-girl.png" /> */}
-          <Typography variant="h4">Get 45% Off</Typography>
+          <Typography variant="h3">Get 45% Off</Typography>
           <Typography variant="h4">on Call Only Deals!</Typography>
-          <Typography variant="h6">Avail Early Bird Discount!</Typography>
+          <Typography variant="h5">Avail Early Bird Discount!</Typography>
           <a href={`tel:${number}`} className={styles.dialog__numberContainer}>
             <Button variant="outlined">
               <PhoneIcon />

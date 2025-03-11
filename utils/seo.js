@@ -1,9 +1,9 @@
 export const seoForHome = {
-  title: 'Holiday Travel Agency | Holiday Tour Company | Fast Holidays',
+  title: 'Fast Holidays| Travel Agency| Flights & Hotels 2024/2025',
   keywords:
-    'Holiday Travel Agency, Holiday companies UK, Fast Holidays, Holiday Tour Company, Travel Agency, Holiday Travel, Travel Company, Travel Company In UK, Tour Company, holiday travel agency, budget holidays',
+    'Fast Holidays, Luxury Travel, Travel Agency, Travel Management Agency, Luxury Travel Agency, Luxury Travel Companies.',
   description:
-    'Fast Holidays is a premier holiday travel agency! Explore our exclusive holiday tour packages and experience unforgettable journeys. Book Now And Save 10%.',
+    'Discover luxury travel with Fast Holidays the premier travel agency in UK, offering travel arrangements & exclusive deals for your dream vacations.',
   canonical: 'https://fastholidays.co.uk/',
   ogLocale: 'en_UK',
   ogType: 'website',
@@ -22,10 +22,10 @@ export const seoForHome = {
 };
 
 export const seoForDestinations = {
-  title: 'International Destinations | Best Places To Visit | Perfect Places',
+  title: 'Best Destinations In Europe| Dream Destinations',
   keywords:
-    'International Destinations, Best Places To Visit, Perfect Places, places to Go, Places To Visit, Affordable Destinations, Beautiful Destinations.',
-  description: `Discover the top international destinations and the best places to visit worldwide. Embark on unforgettable journeys with us! Explore The Destinations with us!`,
+    'Destination weddings, Solo travel destinations, Best destinations in Europe, Vacation destinations.',
+  description: `Discover your dream destinations with our guide to the best destinations in Europe. Explore top travel spots, from iconic cities to hidden gems.`,
   canonical: 'https://fastholidays.co.uk/destinations',
   ogLocale: 'en_UK',
   ogType: 'website',
@@ -63,10 +63,10 @@ export const seoForAirlines = {
 };
 
 export const seoForHolidays = {
-  title: 'Perfect Holidays | Unforgettable Holiday  | perfect holiday travels',
+  title: 'Luxury Holidays| Best Holidays Deals For 2024/2025',
   keywords:
-    'Perfect Holidays, Unforgettable Holiday, perfect holiday travels, perfect holiday planners, perfect vacation spots, Affordable Holidays, perfect vacation places.',
-  description: `Perfect Holidays await! Plan Unforgettable Holidays with Fast Holidays. Your dream vacation is just a click away. Book now for your next adventure!`,
+    'Luxury Holidays, Best Holidays Deals For 2024/2025, Luxury Vacation Deals, Cheap Vacation Deals.',
+  description: `Explore luxury holidays, affordable getaways and the best holidays deals for 2024/2025. Discover dream destinations tailored to your budget.`,
   canonical: 'https://fastholidays.co.uk/holidays',
   ogLocale: 'en_UK',
   ogType: 'website',

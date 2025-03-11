@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from '@/styles/home.module.css';
+import holiday from '@/styles/txtpages.module.css'
 import Layout from '@/components/layout';
 import DestCard from '@/components/common/destCard';
 import {
@@ -20,7 +21,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { db } from '@/config/firebaseConfig';
-import { appName } from '../utils/constants';
+import { appName, number } from '../utils/constants';
 import Searchbar from '@/components/searchEngine';
 import { seoForHome } from 'utils/seo';
 
@@ -155,30 +156,161 @@ export default function Home() {
           </div>
           <Searchbar />
         </div>
+        <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h1>{appName} is Your #1 Travel Partner</h1>
+            <Typography>
+              {`Our goal at Quick Holidays is to fulfill your ideal vacation experience. Our ${appName} services guarantee that every aspect of your vacation is meticulously organized, whether you're searching for an exhilarating adventure or a cultural city tour. `}
+            </Typography>
+          </div>
+          <br></br>
+          <div className={styles.aboutUs}>
+            <Typography>
+              {`As the greatest travel agency in the UK, we handle all the details, from arranging your flights and selecting the ideal lodging to developing personalized itineraries and offering round-the-clock assistance. Because every little thing is taken care of, you can unwind and enjoy it.`}
+            </Typography>
+          </div>
+          <br></br>
+          <div className={styles.aboutUs}>
+            <Typography>
+              {`Allow us to design the ideal journey for you, combining fantastic locations with first-rate service. We look forward to assisting you in organizing your upcoming ${appName} trip!`}
+            </Typography>
+          </div>
+        </div>
         <div className={styles.popularDestContainer}>
-          <div className={styles.destsHeader}>
-            <h1>Top Destinations</h1>
-          </div>
-          <div className={styles.popular_dests}>
+        <div className={styles.popular_dests}>
 
-              {destinations.slice(0, 6).map((data, i) => {
-                return (
-                    <div key={i} className={styles.destPage__destinations}>
-                      <DestCard dest={data} />
-                    </div>
-                );
-              })}
+{destinations.slice(0, 6).map((data, i) => {
+  return (
+      <div key={i} className={styles.destPage__destinations}>
+        <DestCard dest={data} />
+      </div>
+  );
+})}
 
+</div>
+<div className={styles.destMore}>
+<Link href="/destinations">
+<Button variant="contained">More</Button>
+</Link>
+</div>
+</div>
+
+<div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h2>Cheap Vacations & More</h2>
+            <Typography>
+              {`Begin your ideal getaway without breaking the bank! With our ${appName} services, we specialize in low-cost travel arrangements without compromising on quality. We search for the greatest offers on travel, lodging, and entertainment so you may enjoy both leisure and entertainment.`}
+            </Typography>
+            <br></br>
+            <Typography>
+              {`Our travel service makes luxury travel accessible to anyone, whether you're discovering undiscovered locations around Europe or immersing yourself in the local cultures.`}
+            </Typography>
+            <br></br>
+            <Typography>
+              {`Plus, your ideal getaway might be closer than you think with exclusive deals and one-on-one assistance. Are you prepared to travel wisely? Together, we can turn your next vacation into an inexpensive adventure!`}
+            </Typography>
           </div>
-          <div className={styles.destMore}>
-            <Link href="/destinations">
+        </div>
+        <div>
+        <div className={holiday.showcase}>
+
+          {/* Dubai Packages..................... */}
+
+        <div className={holiday.travel_card}>
+        <div className={holiday.box}>
+          <div className={holiday.ribbon_2}>save upto 10% off</div>
+        </div>
+        <Link className={holiday.package_image4} href={`tel:${number}`}>
+        <div className={holiday.package_image4}>
+          {/* <img src="/public/assets/card\ package\ image.jpg" alt="Holiday Destination" /> */}
+        </div>
+        </Link>
+        <div className={holiday.content}>
+          <label className={holiday.category}>ADVENTURE</label>
+          <h3 className={holiday.topic}>TH8 Palm Dubai Flights are included with Baggage<span className={holiday.carddestinationtxt}>(Dubai)</span></h3>
+          <div className={holiday.price}>
+            <div className={holiday.discount_info}>&#128339; 5 Nights</div>
+            <div className={holiday.original_price}>£700</div>
+          </div>
+          <div className={holiday.cardButtons}>
+          <Link href={`tel:${number}`}>{number}</Link>
+          <Link href="/send-inquiry">Book Now</Link>
+          </div>
+        </div>
+      </div>
+
+      <div className={holiday.travel_card}>
+        <div className={holiday.box}>
+          <div className={holiday.ribbon_2}>save upto 5% off</div>
+        </div>
+        <Link className={holiday.package_image5} href={`tel:${number}`}>
+        <div className={holiday.package_image5}>
+          {/* <img src="/public/assets/card\ package\ image.jpg" alt="Holiday Destination" /> */}
+        </div>
+        </Link>
+        <div className={holiday.content}>
+          <label className={holiday.category}>ADVENTURE</label>
+          <h3 className={holiday.topic}>Royal Central Palm Dubai Flights are included with Baggage<span className={holiday.carddestinationtxt}>(Dubai)</span></h3>
+          <div className={holiday.price}>
+            <div className={holiday.discount_info}>&#128339; 5 Nights</div>
+            <div className={holiday.original_price}>£690</div>
+          </div>
+          <div className={holiday.cardButtons}>
+          <Link href={`tel:${number}`}>{number}</Link>
+          <Link href="/send-inquiry">Book Now</Link>
+          </div>
+        </div>
+      </div>
+
+      <div className={holiday.travel_card}>
+        <div className={holiday.box}>
+          <div className={holiday.ribbon_2}>save upto 10% off</div>
+        </div>
+        <Link className={holiday.package_image6} href={`tel:${number}`}>
+        <div className={holiday.package_image6}>
+          {/* <img src="/public/assets/card\ package\ image.jpg" alt="Holiday Destination" /> */}
+        </div>
+        </Link>
+        <div className={holiday.content}>
+          <label className={holiday.category}>ADVENTURE</label>
+          <h3 className={holiday.topic}>Jumeirah Mina A'Salam Dubai (Deluxe Room) with breakfast<span className={holiday.carddestinationtxt}>(Dubai)</span></h3>
+          <div className={holiday.price}>
+            <div className={holiday.discount_info}>&#128339; 5 Nights</div>
+            <div className={holiday.original_price}>£698</div>
+          </div>
+          <div className={holiday.cardButtons}>
+          <Link href={`tel:${number}`}>{number}</Link>
+          <Link href="/send-inquiry">Book Now</Link>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.destMore}>
+            <Link href="/holidays">
               <Button variant="contained">More</Button>
             </Link>
           </div>
-        </div>
+
+      {/* Dubai packages end................... */}
+
+    </div>
+      </div>
+        <div className={styles.showcase}>
+</div>
         <div className={styles.topFaresContainer}>
           <div className={styles.destsHeader}>
-            <h1>Top Fares</h1>
+            <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h2>Cheapest Flights Available</h2>
+            <Typography>
+              {`Discover the globe without going over your budget with ${appName} fantastic flight offers! We offer the cheapest rates to get you there, whether your travel plans are for a quick weekend break or a major international journey.`}
+            </Typography>
+            <br></br>
+            <Typography>
+              {`You can locate the best deals on major airlines with the aid of our tools and exclusive offers. Bid farewell to pricey flights and hello to exciting new travel adventures! The best flight deals are the first step towards the ideal vacation. Start traveling with us right now and take advantage of cheaper flights.`}
+            </Typography>
+          </div>
+        </div>
           </div>
           <div className={styles.top_fares}>
             {topFares ? (
@@ -212,11 +344,23 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.topAirlinesContainer}>
-          <div className={styles.destsHeader}>
-            <h1>Top Airlines</h1>
+        <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h2>Top Airlines</h2>
+            <Typography>
+              {`To further reduce the cost of your ideal trip, get the greatest airline offers. Our exclusive flight offers enable you to travel comfortably without going over budget, whether you're traveling far or remaining close.`}
+            </Typography>
+            <br></br>
+            <Typography>
+              {`Imagine enjoying luxurious luxury, excellent service, and significant savings while visiting your favorite locations. From last-minute getaways to early bird bargains, our handpicked airline deals cater to all types of travelers.`}
+            </Typography>
+            <br></br>
+            <Typography>
+              {`Don't pass up this opportunity to reserve your spot and begin your next journey with savings that will make every mile worthwhile!`}
+            </Typography>
           </div>
+        </div>
           <div className={styles.topAirlines}>
-
               {airlines.slice(0, 15).map((data, i) => {
                 return (
                   <div key={i} className={styles.airlineCardContainer}>
@@ -224,7 +368,6 @@ export default function Home() {
                 </div>
                 );
               })}
-
           </div>
           <div className={styles.destMore}>
             <Link href="/airlines">
@@ -233,47 +376,24 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.homePage__txt}>
-          <div className={styles.aboutUs}>
-            <h2>Welcome to {appName} - Your Premier Holiday Travel Agency in the UK!</h2>
-            <h3>Introduction:</h3>
+        <div className={styles.aboutUs}>
+            <h2>Everybody's Holidays</h2>
             <Typography>
-              {`Are you looking for a reliable Holiday travel agency to help you plan your next vacation? Look no further than ${appName}, the UK’s leading holiday travel agency. Passionate about adventure and a commitment to excellence, we pride ourselves on creating unforgettable trips that fulfill your wanderlust.`}
+              {`We offer the ideal vacation with ${appName} for every traveler. Our vacation packages are tailored to meet your requirements, whether you're planning a family-friendly trip, a romantic retreat, or some alone time. Being a top luxury travel business, we provide everything from lively city excursions to tranquil getaways and thrilling adventures.`}
+            </Typography>
+            <br></br>
+            <Typography>
+              {`We handle every little thing so you can concentrate on creating enduring memories. Discover the ideal vacation spot by looking through our options now!`}
             </Typography>
           </div>
           <div className={styles.aboutUs}>
-            <h3>Why Choose Us:</h3>
+            <h2>Speak with Our Travel Consultants</h2>
             <Typography>
-              {`As UK Leading Holiday Travel Agency, we stand proud of the group for several motives:`}
+              {`Travel planning ought to be just as much fun as the actual trip. For this reason, our travel specialists at ${appName} are available to assist you at every stage. Whether you're looking for a thrilling journey, a tranquil getaway, or a cultural encounter, our opulent travel agency can tailor your vacation to your preferences.`}
             </Typography>
-          </div>
-          <div className={styles.aboutUs}>
-            <h3>Expertise:</h3>
+            <br></br>
             <Typography>
-              {`With years of experience in the travel industry, our group of seasoned professionals understands the nuances of making your dream holiday.`}
-            </Typography>
-          </div>
-          <div className={styles.aboutUs}>
-            <h3>Personalized Service:</h3>
-            <Typography>
-              {`We trust every traveler is specific, and our committed journey specialists make an effort to apprehend your preferences, ensuring a tailored itinerary that perfectly fits your desires.`}
-            </Typography>
-          </div>
-          <div className={styles.aboutUs}>
-            <h3>International Destinations:</h3>
-            <Typography>
-              {`Explore the sector with ${appName}! From the pristine beaches of Bali to the cultural wonders of Paris, we offer a wide selection of international destinations to quench your thirst for a journey.`}
-            </Typography>
-          </div>
-          <div className={styles.aboutUs}>
-            <h3>Business Class Flights:</h3>
-            <Typography>
-              {`Elevate your adventure with our unique Business Class flight alternatives, in which you may revel in luxury, consolation, and comfort whilst soaring to your chosen vacation spot.`}
-            </Typography>
-          </div>
-          <div className={styles.aboutUs}>
-            <h3>Unbeatable Deals:</h3>
-            <Typography>
-              {`We agree with offering a price without compromise. Our excursion applications and flight options offer aggressive charges, permitting you to embark on your dream excursion without breaking the financial institution.`}
+              {`We'll ensure that your trip is more than just a vacation—it will be an amazing experience—with insider advice, special offers, and individualized attention. Speak with one of our travel specialists right now to begin organizing the ideal vacation. We'll handle the specifics so you can focus on creating memories.`}
             </Typography>
           </div>
         </div>

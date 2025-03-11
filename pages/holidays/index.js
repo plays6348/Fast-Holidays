@@ -30,9 +30,14 @@ export default function Holidays() {
 
 <div className={styles.holidaybanner}>
         </div>
-        <h1 className={styles.holidayheading}>Holiday Packages</h1>
-        {/* <h2 className={styles.holidayheading}>Maldives</h2> */}
-
+        <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h1>Memorable Vacations - Where Experiences Are Created</h1>
+            <Typography>
+              {`Welcome to Unforgettable Holidays, where your dream of luxury holidays transforms into priceless memories. We specialize in offering the best holiday deals for 2024/2025, ensuring that whether you're after a peaceful retreat, an adventurous journey, or a cultural immersion, your experience is nothing short of extraordinary.`}
+            </Typography>
+          </div>
+          </div>
       <div>
         <div className={styles.showcase}>
 
@@ -49,7 +54,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>TH8 Palm Dubai Flights are included with Baggage<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>TH8 Palm Dubai Flights are included with Baggage<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 5 Nights</div>
             <div className={styles.original_price}>£700</div>
@@ -72,7 +77,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Royal Central Palm Dubai Flights are included with Baggage<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Royal Central Palm Dubai Flights are included with Baggage<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 5 Nights</div>
             <div className={styles.original_price}>£690</div>
@@ -95,7 +100,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Jumeirah Mina A'Salam Dubai (Deluxe Room) with breakfast<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Jumeirah Mina A'Salam Dubai (Deluxe Room) with breakfast<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 5 Nights</div>
             <div className={styles.original_price}>£698</div>
@@ -118,7 +123,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Luxury 5-Night Stay at Marriott Resort Palm Jumeirah with Palm<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Luxury 5-Night Stay at Marriott Resort Palm Jumeirah with Palm<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 5 Nights</div>
             <div className={styles.original_price}>£999</div>
@@ -141,7 +146,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Holiday at Anantara the Palm with Half Board Flights are included<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Holiday at Anantara the Palm with Half Board Flights are included<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 3 Nights</div>
             <div className={styles.original_price}>£939</div>
@@ -164,7 +169,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Holiday at Fairmont the Palm with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Holiday at Fairmont the Palm with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 3 Nights</div>
             <div className={styles.original_price}>£930</div>
@@ -187,7 +192,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}> Walfdorf Astoria Dubai the Palm with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}> Walfdorf Astoria Dubai the Palm with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 3 Nights</div>
             <div className={styles.original_price}>£899</div>
@@ -210,7 +215,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Taj Exotica Resort & Spa with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Taj Exotica Resort & Spa with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 3 Nights</div>
             <div className={styles.original_price}>£889</div>
@@ -233,7 +238,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Sofitel the Palm with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Sofitel the Palm with Half Board<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 3 Nights</div>
             <div className={styles.original_price}>£879</div>
@@ -256,7 +261,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Hilton Dubai Jumeirah Beach with Flight<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Hilton Dubai Jumeirah Beach with Flight<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 5 Nights</div>
             <div className={styles.original_price}>£615</div>
@@ -279,7 +284,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Amwaj Rotana Jumeirah Beach Dubai<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Amwaj Rotana Jumeirah Beach Dubai<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£680</div>
@@ -302,7 +307,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Rixos Premium Dubai JBR with Flight<span className={styles.carddestinationtxt}>(Dubai)</span></h1>
+          <h3 className={styles.topic}>Rixos Premium Dubai JBR with Flight<span className={styles.carddestinationtxt}>(Dubai)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 5 Nights</div>
             <div className={styles.original_price}>£680</div>
@@ -332,7 +337,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Taj Coral Reef Resort & Spa (PREMIUM WATER VILLA) Flights are included with Baggage<span className={styles.carddestinationtxt}>(Maldives)</span></h1>
+          <h3 className={styles.topic}>Taj Coral Reef Resort & Spa (PREMIUM WATER VILLA) Flights are included with Baggage<span className={styles.carddestinationtxt}>(Maldives)</span></h3>
           
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
@@ -356,7 +361,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Nova Maldives (Water Villa) Flights are included with Baggage<span className={styles.carddestinationtxt}>(Maldives)</span></h1>
+          <h3 className={styles.topic}>Nova Maldives (Water Villa) Flights are included with Baggage<span className={styles.carddestinationtxt}>(Maldives)</span></h3>
           
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
@@ -380,7 +385,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Siyam World Maldives (Water Villa + Slide) Flights are included<span className={styles.carddestinationtxt}>(Maldives)</span></h1>
+          <h3 className={styles.topic}>Siyam World Maldives (Water Villa + Slide) Flights are included<span className={styles.carddestinationtxt}>(Maldives)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£2,649</div>
@@ -391,6 +396,29 @@ export default function Holidays() {
           </div>
         </div>
       </div>
+
+      <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h2>Selected Adventures Exclusively for You</h2>
+            <Typography>
+              {`At Unforgettable Holidays, we believe that the best holidays are those tailored to your desires. Our team of experts curates bespoke luxury vacation deals and cheap vacation deals, crafting itineraries that match your unique interests.`}
+            </Typography>
+            <h3>Romantic Getaways:</h3>
+            <Typography>
+              {`Experience cozy accommodations, romantic dinners, and breathtaking scenery.`}
+            </Typography>
+            <br></br>
+            <h3>Family Fun:</h3>
+            <Typography>
+              {`Enjoy activities and attractions that entertain all ages.`}
+            </Typography>
+            <br></br>
+            <h3>Solo Adventures:</h3>
+            <Typography>
+              {`Discover one-of-a-kind experiences for solo travelers eager to explore and learn.`}
+            </Typography>
+          </div>
+          </div>
 
       <div className={styles.travel_card}>
         <div className={styles.box}>
@@ -403,7 +431,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Holiday in Crown Paradise Club Cancun & Canyon Flights are included with Baggage<span className={styles.carddestinationtxt}>(Mexico)</span></h1>
+          <h3 className={styles.topic}>Holiday in Crown Paradise Club Cancun & Canyon Flights are included with Baggage<span className={styles.carddestinationtxt}>(Mexico)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 12 Nights</div>
             <div className={styles.original_price}>£754</div>
@@ -426,7 +454,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>InterContinental Mauritius Resort Balaclava Fort (Standard Room)<span className={styles.carddestinationtxt}>(Mauritius)</span></h1>
+          <h3 className={styles.topic}>InterContinental Mauritius Resort Balaclava Fort (Standard Room)<span className={styles.carddestinationtxt}>(Mauritius)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,299</div>
@@ -449,7 +477,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Paradise Cove Boutique Hotel (Deluxe Premium Room) (Including Flights with Baggage)<span className={styles.carddestinationtxt}>(Mauritius)</span></h1>
+          <h3 className={styles.topic}>Paradise Cove Boutique Hotel (Deluxe Premium Room) (Including Flights with Baggage)<span className={styles.carddestinationtxt}>(Mauritius)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,629</div>
@@ -472,7 +500,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Shandrani Beachcomber Resort & Spa (Deluxe Room) With Half Board<span className={styles.carddestinationtxt}>(Mauritius)</span></h1>
+          <h3 className={styles.topic}>Shandrani Beachcomber Resort & Spa (Deluxe Room) With Half Board<span className={styles.carddestinationtxt}>(Mauritius)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,499</div>
@@ -495,7 +523,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Heritage Le Telfair Golf & Wellness Resort (Sea View Suite) With Breakfast<span className={styles.carddestinationtxt}>(Mauritius)</span></h1>
+          <h3 className={styles.topic}>Heritage Le Telfair Golf & Wellness Resort (Sea View Suite) With Breakfast<span className={styles.carddestinationtxt}>(Mauritius)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,379</div>
@@ -518,7 +546,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Sofitel Mauritius L'Imperial Resort & Spa (Luxury Room) Breakfast<span className={styles.carddestinationtxt}>(Mauritius)</span></h1>
+          <h3 className={styles.topic}>Sofitel Mauritius L'Imperial Resort & Spa (Luxury Room) Breakfast<span className={styles.carddestinationtxt}>(Mauritius)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,549</div>
@@ -541,7 +569,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Outrigger Mauritius Beach Resort ( JUNIOR SUITE BEACH FRONT)<span className={styles.carddestinationtxt}>(Mauritius)</span></h1>
+          <h3 className={styles.topic}>Outrigger Mauritius Beach Resort ( JUNIOR SUITE BEACH FRONT)<span className={styles.carddestinationtxt}>(Mauritius)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,599</div>
@@ -564,7 +592,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Aska Lara Resort & Spa Double Annex Room All-Inclusive<span className={styles.carddestinationtxt}>(Turkey)</span></h1>
+          <h3 className={styles.topic}>Aska Lara Resort & Spa Double Annex Room All-Inclusive<span className={styles.carddestinationtxt}>(Turkey)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£849</div>
@@ -587,7 +615,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Queens Park Hotel Goynuk Kemer Family Bungalow<span className={styles.carddestinationtxt}>(Turkey)</span></h1>
+          <h3 className={styles.topic}>Queens Park Hotel Goynuk Kemer Family Bungalow<span className={styles.carddestinationtxt}>(Turkey)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£699</div>
@@ -610,7 +638,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Delphin Imperial- All Inclusive Double Superior Land Side<span className={styles.carddestinationtxt}>(Turkey)</span></h1>
+          <h3 className={styles.topic}>Delphin Imperial- All Inclusive Double Superior Land Side<span className={styles.carddestinationtxt}>(Turkey)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,049</div>
@@ -633,7 +661,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Kuta Paradiso Hotel Bali (Deluxe Room) (Including Flights with Baggage)<span className={styles.carddestinationtxt}>(Bali)</span></h1>
+          <h3 className={styles.topic}>Kuta Paradiso Hotel Bali (Deluxe Room) (Including Flights with Baggage)<span className={styles.carddestinationtxt}>(Bali)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£949</div>
@@ -656,7 +684,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Hotel Nikko Bali Benoa Beach (Deluxe Room) (Including Flights with Baggage)<span className={styles.carddestinationtxt}>(Bali)</span></h1>
+          <h3 className={styles.topic}>Hotel Nikko Bali Benoa Beach (Deluxe Room) (Including Flights with Baggage)<span className={styles.carddestinationtxt}>(Bali)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,099</div>
@@ -679,7 +707,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Lv8 Resort Hotel in Bali (Including Flights, Room with Baggage)<span className={styles.carddestinationtxt}>(Bali)</span></h1>
+          <h3 className={styles.topic}>Lv8 Resort Hotel in Bali (Including Flights, Room with Baggage)<span className={styles.carddestinationtxt}>(Bali)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£1,149</div>
@@ -702,7 +730,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Las Vegas & Punta Cana (All-Inclusive) Combine Deal<span className={styles.carddestinationtxt}>(United States & Dominican Republic)</span></h1>
+          <h3 className={styles.topic}>Las Vegas & Punta Cana (All-Inclusive) Combine Deal<span className={styles.carddestinationtxt}>(United States & Dominican Republic)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 10 Nights</div>
             <div className={styles.original_price}>£1,799</div>
@@ -725,7 +753,7 @@ export default function Holidays() {
         </Link>
         <div className={styles.content}>
           <label className={styles.category}>ADVENTURE</label>
-          <h1 className={styles.topic}>Angaga Island Resort & Spa Maldives (WATER BUNGALOW)<span className={styles.carddestinationtxt}>(Maldives)</span></h1>
+          <h3 className={styles.topic}>Angaga Island Resort & Spa Maldives (WATER BUNGALOW)<span className={styles.carddestinationtxt}>(Maldives)</span></h3>
           <div className={styles.price}>
             <div className={styles.discount_info}>&#128339; 7 Nights</div>
             <div className={styles.original_price}>£2,629</div>
@@ -741,37 +769,16 @@ export default function Holidays() {
 
         <div className={styles.txtPage}>
           <div className={styles.section11}>
-            <h2>Unforgettable Holidays - Where Memories Are Made </h2>
+            <h2>Simple-To-Organize Travel</h2>
             <Typography>
-            {appName} takes pride in creating holiday stories that are etched in your coronary heart all the time. From completely happy beach escapes to cultural immersions and thrilling adventures, we curate Unforgettable Holidays that inspire and captivate, leaving you with memories to cherish for your entire life.
+            We take care of everything—from luxury hotels and flights to hiring local guides—so you can focus on creating lasting memories.
             </Typography>
-            <h3>Types of Holidays </h3>
+            <h2>Share Your Experience</h2>
             <Typography>
-            At {appName}, we recognize that each visitor's definition of an appropriate holiday is particular. This is why we take first-rate care to craft bespoke experiences that cater to your goals and pursuits. Our team of journey experts is committed to curating incredible journeys that leave you with loved memories for a lifetime.
-            </Typography>
-            <h3>1. Beach Escapes:</h3>
-            <Typography>
-            For the ones searching for relaxation and quietness, our handpicked beach escapes provide the right getaway. Whether it is the sandy shores of Bali or the turquoise waters of the Maldives, we make certain that you unwind in pricey lodges, surrounded by nature's splendor.
-            </Typography>
-            <h3>2. Cultural Immersion:</h3>
-            <Typography>
-            Immerse yourself within the customs and traditions of your selected destination with our cultural immersion Unforgettable holidays. Explore historic temples, partake in traditional rituals, and engage with nearby communities, gaining deeper know-how of numerous cultures.
-            </Typography>
-            <h3>3. Adventure Getaways:</h3>
-            <Typography>
-            If the journey is what you are searching for, our interesting journey holidays are tailor-made for you. From exhilarating safaris within the African barren region to adrenaline-pumping activities like skydiving and bungee leaping, we create reviews that get your heart racing.
-            </Typography>
-            <h3>4. City Breaks:</h3>
-            <Typography>
-            Discover the heartbeat of vibrant towns with our fascinating town breaks. Whether you want to discover the historic landmarks of Rome or embrace the modernity of Dubai, our town breaks offer a mix of lifestyle, leisure, and exploration.
-            </Typography>
-            <h3>5. Wildlife Safaris:</h3>
-            <Typography>
-            Witness nature's wonders up near and personal with our thoughtfully curated flora and fauna safaris. Experience the joys of encountering majestic wildlife on safari, from the iconic Big Five of Africa to the various marine life of the Galapagos Islands.
+            We'd love to hear about your unforgettable holiday experiences! Share your stories, photos, and adventures on social media using the hashtag [#FastHolidays]. Don't forget to tag us @FastHolidays on Facebook, Instagram, and Twitter.
             </Typography>
           </div>
         </div>
-
         <RandomFooter />
       </div>
     </Layout>

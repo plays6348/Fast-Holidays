@@ -1,3 +1,18 @@
+.homePage__txt {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  opacity: 0.9;
+  margin: 1rem 0rem 5rem 0;
+  padding: 0 1rem;
+}
+
+.aboutUs {
+  max-width: 786px;
+}
+
 .txtPage {
   max-width: 800px;
   margin: 3rem auto;

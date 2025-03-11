@@ -8,6 +8,7 @@ import { theme } from '@/styles/theme';
 import RandomFooter from '@/components/common/randomFooter';
 import Searchbar from '@/components/searchEngine';
 import Typography from '@mui/material/Typography';
+import { seoForDestinations } from 'utils/seo';
 import { appName } from 'utils/constants';
 
 export default function TestingDestinations() {
@@ -39,7 +40,23 @@ export default function TestingDestinations() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Layout>
+        <Layout
+          title={seoForDestinations.title}
+          keywords={seoForDestinations.keywords}
+          description={seoForDestinations.description}
+          canonical={seoForDestinations.canonical}
+          ogLocale={seoForDestinations.ogLocale}
+          ogType={seoForDestinations.ogType}
+          ogTitle={seoForDestinations.ogTitle}
+          ogDescription={seoForDestinations.ogDescription}
+          ogUrl={seoForDestinations.ogUrl}
+          ogSiteName={seoForDestinations.ogSite_name}
+          twitterCard={seoForDestinations.twitterCard}
+          twitterLabel1={seoForDestinations.twitterLabel1}
+          twitterDescription={seoForDestinations.twitterDescription}
+          twitterSite={seoForDestinations.twitterSite}
+          twitterCreator={seoForDestinations.twitterCreator}
+        >
           <div className={styles.bannerImg}>
             <img
               src="/assets/banner 2 fastholidays.jpg"
@@ -52,27 +69,34 @@ export default function TestingDestinations() {
             </div>
             <div className={styles.homePage__txt}>
           <div className={styles.aboutUs}>
-            <h2>International Destinations - Best Places To Visit World:</h2>
-            <h3>Introduction:</h3>
+            <h1>Top Destinations for {appName}</h1>
             <Typography>
-              {`Welcome to ${appName}, your ultimate manual to the most captivating International Destinations and the Best Places to go to around the sector. If you're an avid visitor looking for unparalleled adventures, cultural immersions, and breathtaking reports, you've got to come to the proper area.`}
+              {`Are you searching for a quick getaway that doesn’t skimp on fun or adventure? Our top picks for short vacations offer unforgettable experiences in the shortest time possible.`}
             </Typography>
             <br></br>
             <Typography>
-              {`Our carefully curated series of International Destinations will depart you mesmerized and stimulated. Whether you crave the appeal of historic records, the charm of modern-day metropolises, or the serenity of herbal wonders, we have compiled a brilliant array of locations with the purpose to fulfill your wanderlust goals.`}
+              {`Whether you're planning a romantic weekend in Paris, exploring the Eiffel Tower and the Louvre, or seeking the best destinations in Europe, each location offers the perfect blend of adventure and relaxation.`}
             </Typography>
-            <br></br>
+            <h2>Why Choose Fast Holidays?</h2>
+            <h3>Convenience</h3>
             <Typography>
-              {`Join us in this great expedition, as we uncover the wonders of International Destinations and the Best Places to Visit worldwide. Let ${appName} be your gateway to an international of infinite exploration and unforgettable reminiscences. Start planning your dream ride these days!`}
+              {`Our carefully curated vacation packages seamlessly fit into your busy schedule, whether you're seeking solo travel destinations or planning a quick destination wedding.`}
             </Typography>
-            <h3>List of Destinations:</h3>
+            <h3>Easy Booking</h3>
             <Typography>
-              {`Travel has a unique capacity to enrich our lives, increase our perspectives, and create memories that close a lifetime. At ${appName}, we are pushed by way of the choice to introduce you to the world's maximum charming locations. Our cautiously curated selection of worldwide gemstones promises a tapestry of reviews, from thrilling adventures to serene getaways and everything in between.`}
+              {`With our streamlined booking process, you can reserve your vacation in just a few minutes.`}
+            </Typography>
+            <h3>Memorable Experiences</h3>
+            <Typography>
+              {`Even with limited time, we guarantee every trip is packed with sights and activities you'll remember forever.`}
+            </Typography>
+            <h3>Affordable Pricing</h3>
+            <Typography>
+              {`Maximize your travel time with competitive pricing that ensures you don’t break the bank.`}
             </Typography>
           </div>
         </div>
             <div className={styles.destsHeader}>
-              <h1>Destinations</h1>
             </div>
             <div className={styles.destinations}>
               {countries?.slice(0, next)?.map((data, i) => {
@@ -105,6 +129,36 @@ export default function TestingDestinations() {
                 {!blockApi ? 'Load More' : 'No More'}
               </LoadingButton>
             )} */}
+            <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h2>How It Works</h2>
+            <h3>Convenience</h3>
+            <Typography>
+              {`Explore our handpicked collection of quick vacation packages, from vacation destinations naturally beautiful to the best spots in Europe.`}
+            </Typography>
+            <h3>Customize Your Trip</h3>
+            <Typography>
+              {`Tailor the itinerary and activities to suit your interests, whether you're looking for a whirlwind tour of Europe's top cities or a serene escape to a solo travel haven.`}
+            </Typography>
+            <h3>Book Instantly</h3>
+            <Typography>
+              {`Complete your reservation with just a few clicks using our secure platform.`}
+            </Typography>
+            <h3>Enjoy Your Holiday</h3>
+            <Typography>
+              {`Pack your bags and prepare for a short but memorable trip!`}
+            </Typography>
+            <h2>Special Discounts</h2>
+            <h3>Flash Sale</h3>
+            <Typography>
+              {`Enjoy 10% off all Fast Holidays packages booked within the next 48 hours. Don’t miss this limited-time offer!`}
+            </Typography>
+            <h2>Start Your Fast Holiday Now!</h2>
+            <Typography>
+              {`Don’t wait for the perfect moment—create it! Fast Holidays makes it easy to turn a brief getaway into a lasting memory. Explore our packages and begin your journey today!`}
+            </Typography>
+          </div>
+        </div>
           </div>
           <RandomFooter />
         </Layout>

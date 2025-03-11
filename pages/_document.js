@@ -1,12 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
-    render() {
-      return (
-        <Html>
-          <Head>
+  render() {
+    return (
+      <Html>
+        <Head>
+          {/* Favicon */}
+          <link rel="icon" type="image/x-icon" href="/assets/Fastholidays Fav Icon.png" />
 
-            {/* Start your Google Analytics event tracking code */}
+          {/* Facebook Domain Verification */}
+          <meta name="facebook-domain-verification" content="lhxbyqz5159agp0gg03rguahgjolno" />
+
+          {/* Google Analytics Event Tracking */}
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -25,9 +30,8 @@ export default class MyDocument extends Document {
               `,
             }}
           />
-            {/* End your Google Analytics event tracking code */}
 
-            {/* Place your Google Ads gtag.js code here */}
+          {/* Google Ads gtag.js */}
           <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11000791019"></script>
           <script
             dangerouslySetInnerHTML={{
@@ -39,35 +43,26 @@ export default class MyDocument extends Document {
               `,
             }}
           />
-          {/* End of Google Ads gtag.js code */}
 
-          {/* Google tag (gtag.js) */}
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-HHE37ED8GC"
-          ></script>
+          {/* Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHE37ED8GC"></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-HHE37ED8GC');
-            `,
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-HHE37ED8GC');
+              `,
             }}
-          ></script>
-          {/* Google tag end (gtag.js) */}
-
-          </Head>
-          <body>
-
-          {/* Start your noscript iframe code */}
-          
-          {/* End your noscript iframe code */}
-            <Main />
-            <NextScript />
-          </body>
-        </Html>
-      );
-    }
+          />
+        </Head>
+        <body>
+          {/* Main Content */}
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
+}
