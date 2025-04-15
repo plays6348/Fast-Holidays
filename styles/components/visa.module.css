@@ -76,7 +76,7 @@
     /* width: 100%; */
     height: auto;
     border: 1px solid #8080803f;
-    padding: 0.4rem 1rem;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;

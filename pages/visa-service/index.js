@@ -35,7 +35,7 @@ const VisaService = () => {
               />
             </div>
             <div>
-              <h2 className={visaStyles.visaheading}>Apply Your Schengen Visa</h2>
+              <h2 className={visaStyles.visaheading}>Apply Your Visa Now</h2>
             </div>
            <div className={visaStyles.airlinesContainer}>
               <div className={visaStyles.airlines}>
