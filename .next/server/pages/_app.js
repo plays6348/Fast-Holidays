@@ -1184,6 +1184,17 @@ function Footer() {
             children: constants["a" /* address */]
           })
         })]
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+        className: footer_module_default.a.footer__contact_grid,
+        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("p", {
+          children: ["For any complaints, please call", " ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+            href: "tel:02080440777",
+            style: {
+              fontWeight: 'bold'
+            },
+            children: "020 8044 0777"
+          }), ". Our support team is ready to assist you."]
+        })
       })]
     }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
       className: footer_module_default.a.footer__links,
@@ -1252,6 +1263,17 @@ function Footer() {
             sx: footer_muiStyles.footer__link
           })
         })]
+      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+        className: footer_module_default.a.footer__contact_grid,
+        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("p", {
+          children: ["For Complaints Please Fill the Form", " ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
+            href: "https://docs.google.com/forms/d/11ThuhWo4jJ8Rik7HYabq64ajAqs4b1jcQcJQgV1WkDc/viewform?pli=1%5D&pli=1%5D&edit_requested=true",
+            style: {
+              fontWeight: 'bold'
+            },
+            children: "(Open Form)"
+          })]
+        })
       })]
     })]
   });
@@ -1408,7 +1430,7 @@ function DialogComponent() {
           className: dialog_module_default.a.dialog__numberContainer,
           children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])(material_["Button"], {
             variant: "outlined",
-            children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(WhatsApp_default.a, {}), constants["h" /* number */]]
+            children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(WhatsApp_default.a, {}), constants["j" /* whatsapp */]]
           })
         }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
           href: "/send-inquiry",
@@ -5146,7 +5168,7 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return instagramLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return appLink; });
 const number = '020 3744 1171';
-const whatsapp = '+447915634791';
+const whatsapp = '+447476925533';
 const appName = 'Fast Holidays';
 const email = 'info@fastholidays.co.uk';
 const bookingEmail = 'booking@fastholidays.co.uk';
