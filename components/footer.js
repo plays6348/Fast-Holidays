@@ -74,6 +74,14 @@ export default function Footer() {
             <Typography>{address}</Typography>
           </a>
         </div>
+        <div className={styles.footer__contact_grid}>
+          <p>
+  For any complaints, please call{" "}
+  <a href="tel:02080440777" style={{ fontWeight: 'bold' }}>
+    020 8044 0777
+  </a>. Our support team is ready to assist you.
+</p>
+        </div>
       </div>
 
       <div className={styles.footer__links}>
@@ -120,6 +128,14 @@ export default function Footer() {
           <a href={instagramLink}>
             <InstagramIcon sx={muiStyles.footer__link} />
           </a>
+        </div>
+        <div className={styles.footer__contact_grid}>
+          <p>
+  For Complaints Please Fill the Form{" "}
+  <a href="https://docs.google.com/forms/d/11ThuhWo4jJ8Rik7HYabq64ajAqs4b1jcQcJQgV1WkDc/viewform?pli=1%5D&pli=1%5D&edit_requested=true" style={{ fontWeight: 'bold' }}>
+    (Open Form)
+  </a>
+</p>
         </div>
       </div>
     </div>

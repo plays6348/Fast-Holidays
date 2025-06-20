@@ -69,7 +69,7 @@ function DialogComponent() {
           >
             <Button variant="outlined">
               <WhatsAppIcon />
-              {number}
+              {whatsapp}
             </Button>
           </a>
           <Link href="/send-inquiry" passHref>
