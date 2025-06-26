@@ -1,5 +1,5 @@
 export const number = '020 3744 1171';
-export const whatsapp = '+447476925533';
+export const whatsapp = '+447577317718';
 export const appName = 'Fast Holidays';
 export const email = 'info@fastholidays.co.uk';
 export const bookingEmail = 'booking@fastholidays.co.uk';
