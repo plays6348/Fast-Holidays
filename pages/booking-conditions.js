@@ -379,7 +379,7 @@ export default function BookingConditions() {
             <h2>Your Financial Protection</h2>
             <Typography>
               <strong>
-                {appName.toUpperCase()} Ltd T/A Fast (ATOL # 74904) dealing in
+                {appName.toUpperCase()} Ltd T/A Fast dealing in
                 worldwide Flights and Holiday packages.
               </strong>
             </Typography>

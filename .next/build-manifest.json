@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/ohRx405cUci5dK1xbd5DB/_buildManifest.js",
-    "static/ohRx405cUci5dK1xbd5DB/_ssgManifest.js"
+    "static/KpoKpGO-Lt_EGgce3c70u/_buildManifest.js",
+    "static/KpoKpGO-Lt_EGgce3c70u/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -130,7 +130,7 @@
       "static/chunks/d2193bad28b840bddc3b1f7fa7c88e47853c41ce.f4af9fea0189e4f65dca.js",
       "static/css/14ba72739c75cb2d18bb.css",
       "static/chunks/c9fb3538a8347d85f58f3ba8e5c2e2ded07dd276_CSS.6164c81b6ed04bb13dbd.js",
-      "static/chunks/pages/booking-conditions-dd45af2fc1ceac3a8a64.js"
+      "static/chunks/pages/booking-conditions-10a5fc67709c800482f6.js"
     ],
     "/contact-us": [
       "static/chunks/webpack-7e827f325576e682ac28.js",
