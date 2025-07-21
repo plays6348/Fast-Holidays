@@ -7,7 +7,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://fastholidays.co.uk
+Host: https://https://fastholidays.org
 
 # Sitemaps
-Sitemap: https://fastholidays.co.uk/sitemap.xml
+Sitemap: https://https://fastholidays.org/sitemap.xml

@@ -1,10 +1,10 @@
-export const number = '020 3744 1171';
+export const number = '020 3650 7866';
 export const whatsapp = '+447577317718';
 export const appName = 'Fast Holidays';
-export const email = 'info@fastholidays.co.uk';
-export const bookingEmail = 'booking@fastholidays.co.uk';
+export const email = 'info@https://fastholidays.org';
+export const bookingEmail = 'booking@https://fastholidays.org';
 export const address = 'London, United Kingdom';
 export const fbLink = 'https://www.facebook.com/fastholidays';
 export const twitterLink = 'https://twitter.com/Fast_Holidays';
 export const instagramLink = 'https://www.instagram.com/fastholidaysofficial/';
-export const appLink = 'https://fastholidays.co.uk';
+export const appLink = 'https://https://fastholidays.org';

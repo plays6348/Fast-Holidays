@@ -511,8 +511,8 @@ export default function Layout({
     name: 'Fast Holidays',
     description:
       'Fast Holidays is a travel agency that offers affordable and convenient travel packages.',
-    url: 'https://fastholidays.co.uk/',
-    logo: 'https://fastholidays.co.uk/logo.png',
+    url: 'https://https://fastholidays.org/',
+    logo: 'https://https://fastholidays.org/logo.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: ' 71-75 Shelton St ',
@@ -521,7 +521,7 @@ export default function Layout({
       addressCountry: 'UK',
     },
     telephone: '+44-20-37441171',
-    email: 'info@fastholidays.co.uk',
+    email: 'info@https://fastholidays.org',
     sameAs: [
       'https://www.facebook.com/fastholidays',
       'https://twitter.com/fastholidays',
