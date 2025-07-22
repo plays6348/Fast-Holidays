@@ -521,7 +521,7 @@ export default function Layout({
       addressCountry: 'UK',
     },
     telephone: '+44-20-37441171',
-    email: 'info@https://fastholidays.org',
+    email: 'info@fastholidays.org',
     sameAs: [
       'https://www.facebook.com/fastholidays',
       'https://twitter.com/fastholidays',
