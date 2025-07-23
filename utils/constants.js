@@ -7,4 +7,4 @@ export const address = 'London, United Kingdom';
 export const fbLink = 'https://www.facebook.com/fastholidays';
 export const twitterLink = 'https://twitter.com/Fast_Holidays';
 export const instagramLink = 'https://www.instagram.com/fastholidaysofficial/';
-export const appLink = 'https://https://fastholidays.org';
+export const appLink = 'https://fastholidays.org';
