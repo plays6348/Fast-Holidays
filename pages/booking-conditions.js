@@ -515,7 +515,7 @@ export default function BookingConditions() {
               been deprived of the opportunity to investigate and rectify your
               complaint whilst you were travelling and this may affect your
               rights. Out of normal office hours you may also contact our
-              emergency assistance department on 0203 884 0131.
+              emergency assistance department on {number}.
             </Typography>
           </div>
         </div>

@@ -1,6 +1,6 @@
 const siteUrl = "https://fastholidays.org";
 
-module.exports = {
+module.exaaports = {
   siteUrl,
   generateRobotsTxt: true,
   priority: 1,
