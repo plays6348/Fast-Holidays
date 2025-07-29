@@ -5168,7 +5168,7 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return instagramLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return appLink; });
 const number = '020 3650 7866';
-const whatsapp = '+447476959202';
+const whatsapp = '+447577317718';
 const appName = 'Fast Holidays';
 const email = 'info@fastholidays.org';
 const bookingEmail = 'booking@fastholidays.org';
