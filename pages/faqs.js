@@ -539,7 +539,7 @@ export default function FAQs() {
                 Unless you can quarantine, we recommend that you postpone your
                 trip to a later date. Many global airlines are offering
                 complimentary date changes. Please do contact a member of our
-                team on 020 3650 7866 About the options you have with the airline
+                team on {number} About the options you have with the airline
                 you are flying with.
               </Typography>
             </AccordionDetails>

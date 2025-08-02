@@ -77,8 +77,8 @@ export default function Footer() {
         <div className={styles.footer__contact_grid}>
           <p>
   For any complaints, please call{" "}
-  <a href="tel:020 3650 7866" style={{ fontWeight: 'bold' }}>
-    020 3650 7866
+  <a href="tel:02082642432" style={{ fontWeight: 'bold' }}>
+    02082642432
   </a>. Our support team is ready to assist you.
 </p>
         </div>

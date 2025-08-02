@@ -1188,11 +1188,11 @@ function Footer() {
         className: footer_module_default.a.footer__contact_grid,
         children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("p", {
           children: ["For any complaints, please call", " ", /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-            href: "tel:020 3650 7866",
+            href: "tel:02082642432",
             style: {
               fontWeight: 'bold'
             },
-            children: "020 3650 7866"
+            children: "02082642432"
           }), ". Our support team is ready to assist you."]
         })
       })]
