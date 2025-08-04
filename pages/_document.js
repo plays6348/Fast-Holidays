@@ -8,57 +8,33 @@ export default class MyDocument extends Document {
           {/* Favicon */}
           <link rel="icon" type="image/x-icon" href="/assets/Fastholidays Fav Icon.png" />
 
-          {/* Facebook Domain Verification */}
-          <meta name="facebook-domain-verification" content="lhxbyqz5159agp0gg03rguahgjolno" />
-
-          {/* Google Analytics Event Tracking */}
+          {/* Facebook Pixel Code */}
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                function gtag_report_conversion(url) {
-                  var callback = function () {
-                    if (typeof(url) != 'undefined') {
-                      window.location = url;
-                    }
-                  };
-                  gtag('event', 'conversion', {
-                      'send_to': 'AW-11000791019/Ckm-CJq-hOAYEOv_yv0o',
-                      'event_callback': callback
-                  });
-                  return false;
-                }
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '1013168884083941');
+                fbq('track', 'PageView');
               `,
             }}
           />
-
-          {/* Google Ads gtag.js */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11000791019"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'AW-11000791019');
-              `,
-            }}
-          />
-
-          {/* Google Analytics */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHE37ED8GC"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-HHE37ED8GC');
-              `,
-            }}
-          />
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src="https://www.facebook.com/tr?id=1013168884083941&ev=PageView&noscript=1"
+            />
+          </noscript>
         </Head>
         <body>
-          {/* Main Content */}
           <Main />
           <NextScript />
         </body>

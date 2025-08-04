@@ -185,50 +185,30 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
           rel: "icon",
           type: "image/x-icon",
           href: "/assets/Fastholidays Fav Icon.png"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-          name: "facebook-domain-verification",
-          content: "lhxbyqz5159agp0gg03rguahgjolno"
         }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("script", {
           dangerouslySetInnerHTML: {
             __html: `
-                function gtag_report_conversion(url) {
-                  var callback = function () {
-                    if (typeof(url) != 'undefined') {
-                      window.location = url;
-                    }
-                  };
-                  gtag('event', 'conversion', {
-                      'send_to': 'AW-11000791019/Ckm-CJq-hOAYEOv_yv0o',
-                      'event_callback': callback
-                  });
-                  return false;
-                }
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '1013168884083941');
+                fbq('track', 'PageView');
               `
           }
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("script", {
-          async: true,
-          src: "https://www.googletagmanager.com/gtag/js?id=AW-11000791019"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("script", {
-          dangerouslySetInnerHTML: {
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'AW-11000791019');
-              `
-          }
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("script", {
-          async: true,
-          src: "https://www.googletagmanager.com/gtag/js?id=G-HHE37ED8GC"
-        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("script", {
-          dangerouslySetInnerHTML: {
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-HHE37ED8GC');
-              `
-          }
+        }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("noscript", {
+          children: /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("img", {
+            height: "1",
+            width: "1",
+            style: {
+              display: 'none'
+            },
+            src: "https://www.facebook.com/tr?id=1013168884083941&ev=PageView&noscript=1"
+          })
         })]
       }), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("body", {
         children: [/*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {}), /*#__PURE__*/Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {})]
