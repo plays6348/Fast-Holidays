@@ -1956,8 +1956,8 @@ function Layout({
     '@type': 'TravelAgency',
     name: 'Fast Holidays',
     description: 'Fast Holidays is a travel agency that offers affordable and convenient travel packages.',
-    url: 'https://https://fastholidays.org/',
-    logo: 'https://https://fastholidays.org/logo.png',
+    url: 'https://fastholidays.org/',
+    logo: 'https://fastholidays.org/logo.png',
     address: {
       '@type': 'PostalAddress',
       streetAddress: ' 71-75 Shelton St ',
@@ -1965,7 +1965,7 @@ function Layout({
       postalCode: ' WC2H 9JQ',
       addressCountry: 'UK'
     },
-    telephone: '+44-20-37441171',
+    telephone: '+447832621665',
     email: 'info@fastholidays.org',
     sameAs: ['https://www.facebook.com/fastholidays', 'https://twitter.com/fastholidays', 'https://www.instagram.com/fastholidays']
   };
@@ -5168,7 +5168,7 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return instagramLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return appLink; });
 const number = '020 3650 7866';
-const whatsapp = '+447577317718';
+const whatsapp = '+447832621665';
 const appName = 'Fast Holidays';
 const email = 'info@fastholidays.org';
 const bookingEmail = 'booking@fastholidays.org';
