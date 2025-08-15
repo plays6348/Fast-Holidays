@@ -520,7 +520,7 @@ export default function Layout({
       postalCode: ' WC2H 9JQ',
       addressCountry: 'UK',
     },
-    telephone: '+447832621665',
+    telephone: '+447877181410',
     email: 'info@fastholidays.org',
     sameAs: [
       'https://www.facebook.com/fastholidays',

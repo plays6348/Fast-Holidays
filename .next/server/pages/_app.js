@@ -1965,7 +1965,7 @@ function Layout({
       postalCode: ' WC2H 9JQ',
       addressCountry: 'UK'
     },
-    telephone: '+447832621665',
+    telephone: '+447877181410',
     email: 'info@fastholidays.org',
     sameAs: ['https://www.facebook.com/fastholidays', 'https://twitter.com/fastholidays', 'https://www.instagram.com/fastholidays']
   };
@@ -5168,7 +5168,7 @@ exports.__esModule=true;exports.normalizePathSep=normalizePathSep;exports.denorm
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return instagramLink; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return appLink; });
 const number = '020 3650 7866';
-const whatsapp = '+447832621665';
+const whatsapp = '+447877181410';
 const appName = 'Fast Holidays';
 const email = 'info@fastholidays.org';
 const bookingEmail = 'booking@fastholidays.org';
