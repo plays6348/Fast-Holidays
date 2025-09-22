@@ -176,6 +176,18 @@ export default function Home() {
             </Typography>
           </div>
         </div>
+        <div className={styles.homePage__txt}>
+          <div className={styles.aboutUs}>
+            <h2>For any Complaints</h2>
+            <Typography>
+              {`For any complaints, please call or Fill form. Our support team is ready to assist you.`}
+            </Typography>
+            <div className={holiday.complaintsbtns}>
+          <Link href={`tel:02082642432`}>02082642432</Link>
+          <Link href="https://docs.google.com/forms/d/11ThuhWo4jJ8Rik7HYabq64ajAqs4b1jcQcJQgV1WkDc/viewform?pli=1%5D&pli=1%5D&edit_requested=true">Open Form</Link>
+          </div>
+          </div>
+          </div>
         <div className={styles.popularDestContainer}>
         <div className={styles.popular_dests}>
 
